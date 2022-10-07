@@ -1,0 +1,151 @@
+//component: grid
+// ########### CONFIG ##########
+
+
+//grid
+$columns: 12;
+$column-base-spacing: 30;
+$column-spacing: (
+        normal: $column-base-spacing,
+        0: 0,
+        50: 50,
+        80: 80,
+        100: 100
+);
+
+//wrapper
+$wrapper : (
+        small 1200px 30px,
+        large 1400px 30px,
+        fullwidth 100% 0
+);
+
+
+
+
+
+
+// ########### END OF CONFIG ##########
+//wrapper
+@mixin wrapper($breakpoint) {
+  @each $wrapper-name, $wrapper-width, $wrapper-space in $wrapper {
+    .#{$breakpoint}wrapper-#{$wrapper-name} {
+      display: block;
+      margin: 0 auto;
+      max-width: #{$wrapper-width};
+      width: 100%;
+      padding-left: #{$wrapper-space};
+      padding-right: #{$wrapper-space};
+    }
+  }
+}
+
+@each $breakpoint-name, $breakpoint-width in $breakpoints {
+  @if $breakpoint-width != 0 {
+    @media (max-width: #{$breakpoint-width}px) {
+      $breakpoint: #{$breakpoint-name}\:;
+      @include wrapper($breakpoint);
+    }
+  } @else {
+    $breakpoint: null;
+    @include wrapper($breakpoint);
+  }
+}
+
+
+//column spacing base
+:root {
+  --oson-column-spacing: #{$column-base-spacing / 2}px;
+  --oson-column-negative-spacing: -#{$column-base-spacing / 2}px;
+}
+
+
+//container
+.container {
+  display: block;
+  padding-left: var(--oson-column-spacing);
+  padding-right: var(--oson-column-spacing);
+}
+
+
+//row
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: var(--oson-column-negative-spacing);
+  margin-left: var(--oson-column-negative-spacing);
+}
+
+
+//column spacing
+@mixin column-spacing($breakpoint) {
+  @each $column-spacing-name, $column-spacing-value in $column-spacing {
+    .#{$breakpoint}col-space-#{$column-spacing-name} {
+      --oson-column-spacing: #{$column-spacing-value}px;
+      --oson-column-negative-spacing: -#{$column-spacing-value}px;
+    }
+  }
+}
+
+@each $breakpoint-name, $breakpoint-width in $breakpoints {
+  @if $breakpoint-width != 0 {
+    @media (max-width: #{$breakpoint-width}px) {
+      $breakpoint: #{$breakpoint-name}\:;
+      @include column-spacing($breakpoint);
+    }
+  } @else {
+    $breakpoint: null;
+    @include column-spacing($breakpoint);
+  }
+}
+
+
+//column
+@mixin column-class($i) {
+  box-sizing: border-box;
+  width: #{($i / $columns) * 100}#{'%'};
+  padding-left: var(--oson-column-spacing);
+  padding-right: var(--oson-column-spacing);
+  flex: 0 0 auto;
+}
+
+@mixin column-base-class() {
+  box-sizing: border-box;
+  padding-left: var(--oson-column-spacing);
+  padding-right: var(--oson-column-spacing);
+  flex: 1 0 0;
+}
+
+@mixin column-auto-class() {
+  box-sizing: border-box;
+  width: auto;
+  padding-left: var(--oson-column-spacing);
+  padding-right: var(--oson-column-spacing);
+  flex: 0 0 auto;
+}
+
+@mixin column-render($breakpoint) {
+  @for $i from 1 through $columns {
+    .#{$breakpoint}col-#{$i} {
+      @include column-class($i);
+    }
+  }
+  .#{$breakpoint}col {
+    @include column-base-class();
+  }
+  .#{$breakpoint}col-auto {
+    @include column-auto-class();
+  }
+}
+
+@each $breakpoint-name, $breakpoint-width in $breakpoints {
+  @if $breakpoint-width != 0 {
+    @media (max-width: #{$breakpoint-width}px) {
+      $breakpoint: #{$breakpoint-name}\:;
+      @include column-render($breakpoint);
+    }
+  } @else {
+    $breakpoint: null;
+    @include column-render($breakpoint);
+  }
+}

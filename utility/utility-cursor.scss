@@ -1,0 +1,19 @@
+//utility: cursor
+
+//css: .cursor-{value} bsp. cursor-pointer
+
+@mixin cursor($breakpoint) {
+
+  $shortcode: cursor;
+
+  $values: (auto, default, pointer, wait, text, move, not-allowed);
+
+  @each $value in $values {
+
+    .#{$breakpoint}#{$shortcode}-#{$value} {
+      cursor: #{$value};
+    }
+
+  }
+
+}

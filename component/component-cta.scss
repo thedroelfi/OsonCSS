@@ -1,0 +1,436 @@
+//component: cta
+
+// ########### CONFIG ##########
+//cta container
+$cta-distance: 30px;
+
+
+
+
+// ########### BUTTON CONFIG ##########
+//button settings
+$cta-btn-settings : (
+
+        //typo
+        font-family: sans-serif,
+        font-size: 16px,
+        font-weight: 700,
+        font-style: normal,
+        text-transform: none,
+        text-decoration: none,
+        line-height: 1.6,
+        letter-spacing: normal,
+
+        //scale
+        padding: 12px 30px,
+        transform: scale(1),
+
+        //border
+        border-radius: 10px,
+        border: 2px solid,
+
+        //color
+        border-color: #1e3799,
+        color: #fff,
+        background-color: #1e3799,
+
+        //shadow
+        box-shadow: 0 0 0 0 rgba(0,0,0,0)
+
+);
+
+
+//button HOVER settings
+$cta-btn-hover-settings : (
+
+        //scale
+        transform: scale(1),
+
+        //color
+        border-color: #82ccdd,
+        color: #1e3799,
+        background-color: #82ccdd,
+
+        //shadow
+        box-shadow: 0 0 0 0 rgba(0,0,0,0)
+
+);
+
+
+//button CLICK settings
+$cta-btn-click-settings : (
+
+        //scale
+        transform: scale(0.9),
+
+        //color
+        border-color: scale-color(#82ccdd, $lightness: -20%),
+        color: #1e3799,
+        background-color: scale-color(#82ccdd, $lightness: -20%),
+
+        //shadow
+        box-shadow: 0 0 0 0 rgba(0,0,0,0)
+
+);
+
+//btn transition
+@mixin cta-btn-transition() {
+  transition: all 0.5s 0s ease;
+}
+
+
+$cta-btn-color-red : (
+
+        //static
+        border-color: #1e3799,
+        color: #fff,
+        background-color: #1e3799,
+
+        //hover
+        hover-border-color: #1e3799,
+        hover-color: #fff,
+        hover-background-color: #1e3799,
+
+        //click
+        click-border-color: scale-color(#82ccdd, $lightness: -20%),
+        click-color: #fff,
+        click-background-color: scale-color(#82ccdd, $lightness: -20%),
+);
+
+
+
+//register color theme
+$cta-btn-color-themes : (
+        red: $cta-btn-color-red,
+);
+
+
+
+//button resposive sizing
+
+$cta-btn-size-md : (
+        font-size: 16px,
+        padding: 5px 20px
+);
+
+
+$cta-btn-sizing : (
+        md : $cta-btn-size-md
+);
+
+
+
+
+// ########### LINK CONFIG ##########
+//cta link settings
+$cta-link-settings : (
+
+        //typo
+        font-family: sans-serif,
+        font-size: 16px,
+        font-weight: 700,
+        font-style: normal,
+        text-transform: none,
+        text-decoration: none,
+        line-height: 1.6,
+        letter-spacing: normal,
+
+        //border
+        border-bottom: 2px solid,
+
+        //color
+        border-color: #1e3799,
+        color: #000,
+);
+
+//link HOVER settings
+$cta-link-hover-settings : (
+
+        //color
+        border-color: #82ccdd,
+        color: #1e3799,
+
+);
+
+
+//link color themes
+$cta-link-color-red : (
+        //static
+        border-color: #1e3799,
+        color: #fff,
+
+        //hover
+        hover-border-color: #1e3799,
+        hover-color: #fff,
+);
+
+
+
+//register color theme
+$cta-link-color-themes : (
+        red: $cta-link-color-red,
+);
+
+
+//link resposive sizing
+$cta-link-size-md : (
+        font-size: 16px
+);
+
+
+$cta-link-sizing : (
+        md : $cta-link-size-md
+);
+
+
+
+
+/* ########################## END OF SETTINGS ############################### */
+
+
+//cta container
+.cta-container {
+  display: flex;
+  align-items: center;
+  .cta {
+    margin: 0 $cta-distance 0 0;
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+//cta container direction
+@mixin cta-container-direction($breakpoint) {
+  .#{$breakpoint}cta-container-row {
+    align-items: center;
+    flex-direction: row;
+    .cta {
+      margin: 0 $cta-distance 0 0;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+  .#{$breakpoint}cta-container-column {
+    flex-direction: column;
+    align-items: center;
+    .cta {
+      margin: 0 0 ($cta-distance / 2) 0;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@each $breakpoint-name, $breakpoint-width in $breakpoints {
+  @if $breakpoint-width != 0 {
+    @media (max-width: #{$breakpoint-width}px) {
+      $breakpoint: #{$breakpoint-name}\:;
+      @include cta-container-direction($breakpoint);
+    }
+  } @else {
+    $breakpoint: null;
+    @include cta-container-direction($breakpoint);
+  }
+}
+
+
+
+
+//base
+.cta {
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  span {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+  }
+  &:hover, &:active, &:focus {
+    span {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      font-style: inherit;
+      text-transform: inherit;
+      text-decoration: inherit;
+      line-height: inherit;
+      letter-spacing: inherit;
+      color: inherit;
+    }
+  }
+}
+
+
+//cta btn -> a
+a.cta-btn {
+  @each $attr, $value in $cta-btn-settings {
+    #{$attr} : #{$value};
+  }
+  @include cta-btn-transition();
+  &:hover {
+    @each $attr, $value in $cta-btn-hover-settings {
+      #{$attr} : #{$value};
+    }
+  }
+  &:focus, &:active {
+    @each $attr, $value in $cta-btn-click-settings {
+      #{$attr} : #{$value};
+    }
+  }
+}
+
+//cta btn -> button, input[type=submit]
+button.cta-btn, input[type=submit].cta-btn {
+  @each $attr, $value in $cta-btn-settings {
+    #{$attr} : #{$value};
+  }
+  @include cta-btn-transition();
+  &:hover, &:focus {
+    @each $attr, $value in $cta-btn-hover-settings {
+      #{$attr} : #{$value};
+    }
+  }
+  &:active {
+    @each $attr, $value in $cta-btn-click-settings {
+      #{$attr} : #{$value};
+    }
+  }
+}
+
+//cta button sizing
+@each $breakpoint, $size in $breakpoints {
+  @each $breakpoint-name, $sizing-scheme in $cta-btn-sizing {
+    @if $breakpoint == $breakpoint-name {
+      @media (max-width: #{$size}px) {
+        a.cta-btn, button.cta-btn, input[type=submit].cta-btn {
+          @each $attr, $value in $sizing-scheme {
+            #{$attr}:#{$value};
+          }
+        }
+      }
+    }
+  }
+}
+
+//cta color themes
+@each $theme-name, $theme in $cta-btn-color-themes {
+  .cta-btn.cta-color-#{$theme-name} {
+    @each $attr, $value in $theme {
+      @if $attr == border-color {
+        border-color: $value;
+      }
+      @if $attr == color {
+        color: $value;
+      }
+      @if $attr == background-color {
+        background-color: $value;
+      }
+    }
+  }
+  .cta-btn.cta-color-#{$theme-name} {
+    &:hover, &:focus {
+      @each $attr, $value in $theme {
+        @if $attr == hover-border-color {
+          border-color: $value;
+        }
+        @if $attr == hover-color {
+          color: $value;
+        }
+        @if $attr == hover-background-color {
+          background-color: $value;
+        }
+      }
+    }
+  }
+  .cta-btn.cta-color-#{$theme-name} {
+    &:active {
+      @each $attr, $value in $theme {
+        @if $attr == click-border-color {
+          border-color: $value;
+        }
+        @if $attr == click-color {
+          color: $value;
+        }
+        @if $attr == click-background-color {
+          background-color: $value;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+//cta link
+a.cta-link ,button.cta-link, input[type=submit].cta-link {
+  padding: 0;
+  transform: scale(1);
+  border-radius: 0;
+  border: 0;
+  background-color: unset;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  @include cta-btn-transition();
+  @each $attr, $value in $cta-link-settings {
+    #{$attr} : #{$value};
+  }
+  &:hover, &:focus, &:active {
+    @each $attr, $value in $cta-link-hover-settings {
+      #{$attr} : #{$value};
+    }
+  }
+}
+
+//link colors
+//cta color themes
+@each $theme-name, $theme in $cta-link-color-themes {
+  .cta-link.cta-color-#{$theme-name} {
+    @each $attr, $value in $theme {
+      @if $attr == border-color {
+        border-color: $value;
+      }
+      @if $attr == color {
+        color: $value;
+      }
+    }
+  }
+  .cta-link.cta-color-#{$theme-name} {
+    &:hover, &:focus {
+      @each $attr, $value in $theme {
+        @if $attr == hover-border-color {
+          border-color: $value;
+        }
+        @if $attr == hover-color {
+          color: $value;
+        }
+      }
+    }
+  }
+}
+
+//cta link sizing
+//cta button sizing
+@each $breakpoint, $size in $breakpoints {
+  @each $breakpoint-name, $sizing-scheme in $cta-link-sizing {
+    @if $breakpoint == $breakpoint-name {
+      @media (max-width: #{$size}px) {
+        a.cta-link, button.cta-link, input[type=submit].cta-link {
+          @each $attr, $value in $sizing-scheme {
+            #{$attr}:#{$value};
+          }
+        }
+      }
+    }
+  }
+}

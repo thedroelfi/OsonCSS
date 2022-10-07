@@ -1,0 +1,144 @@
+//########### OSON.css settings ###########
+
+
+
+//breakpoints
+$breakpoints: (
+        z: 0,
+        xxl: 1920,
+        xl: 1366,
+        lg: 1024,
+        md: 768,
+);
+
+
+
+//utilities
+$utilities: (
+        typography: false,
+        margin: false,
+        padding: false,
+        cursor: false,
+        select: false,
+        overflow: false,
+        color: false,
+        display: false,
+        opacity: false,
+        flexbox: false,
+        position: false,
+        width: false,
+        height: false,
+        zindex: false,
+        positions-tlrb: false,
+        border: true
+);
+
+
+
+//colors
+$colorResponsive: true;
+$colorHoverable: true;
+$colorFocusable: false;
+
+
+
+//typography
+$typographyResponsive: true;
+
+$textdecorationHoverable: true;
+$textdecorationFocusable: false;
+
+
+
+//margins
+$marginResponsive: true;
+
+
+
+//paddings
+$paddingResponsive: true;
+
+
+
+//width
+$widthResponsive: true;
+$widthHoverable: true;
+$widthFocusable: false;
+
+$maxwidthHoverable: true;
+$maxwidthFocusable: false;
+
+$minwidthHoverable: true;
+$minwidthFocusable: false;
+
+
+
+//height
+$heightResponsive: true;
+$heightHoverable: true;
+$heightFocusable: false;
+
+$maxheightHoverable: true;
+$maxheightFocusable: false;
+
+$minheightHoverable: true;
+$minheightFocusable: false;
+
+
+
+//opacities
+$opacityResponsive: true;
+$opacityHoverable: true;
+$opacityFocusable: false;
+
+
+
+//zindex
+$zindexResponsive: true;
+$zindexHoverable: true;
+$zindexFocusable: false;
+
+
+
+//position (relative, absolute, etc.)
+$positionResponsive: true;
+
+
+
+//positions (top, left, right, bottom)
+$positionsResponsive: true;
+$positionsHoverable: true;
+$positionsFocusable: false;
+
+
+
+//border
+$bordersResponsive: true;
+
+$bordercolorHoverable: true;
+$bordercolorFocusable: false;
+
+
+
+//cursor
+$cursorResponsive: false;
+
+
+
+//select
+$selectResponsive: false;
+
+
+
+//overflow
+$overflowResponsive: false;
+
+
+
+//display
+$displayResponsive: true;
+
+
+
+//flexbox
+$flexboxResponsive: true;

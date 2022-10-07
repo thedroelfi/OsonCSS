@@ -1,0 +1,29 @@
+//utility: margin
+
+//css: .m{direction}{value} bsp. .mt-50
+
+@mixin margin($breakpoint) {
+
+  $shortcode: m;
+
+  $directions: ('t' top, 'r' right, 'b' bottom, 'l' left, 'tb' top bottom, 'lr' left right);
+
+  @each $margin-name, $margin in $margins {
+
+    .#{$breakpoint}#{$shortcode}-#{$margin-name} {
+      margin: $margin;
+    }
+
+    @each $direction-name, $direction, $second-direction in $directions {
+
+      .#{$breakpoint}#{$shortcode}#{$direction-name}-#{$margin-name} {
+        margin-#{$direction}: $margin;
+        @if $second-direction != null {
+          margin-#{$second-direction}: $margin;
+        }
+      }
+
+    }
+  }
+
+}

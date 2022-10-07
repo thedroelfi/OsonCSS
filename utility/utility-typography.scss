@@ -1,0 +1,411 @@
+//utility: typography
+
+//functions and variables
+@mixin typography-font-size($fsi-desktop, $fsi-mobile) {
+  @if $typography-breakpoint {
+    font-size: responsive-value($fsi-mobile, $fsi-desktop, null);
+  } @else {
+    font-size: #{$fsi-desktop}px;
+  }
+}
+
+$typography-tags : (h1, h2, h3, h4, h5, h6, p);
+
+@mixin typography-attributes($settings) {
+  //font-family
+  @if map.get($settings, font-family) {
+    $attributes: $settings;
+    font-family: map.get($attributes, font-family);
+  }
+
+  //font-weight
+  @if map.get($settings, font-weight) {
+    $attributes: $settings;
+    font-weight: map.get($attributes, font-weight);
+  }
+
+  //font-style
+  @if map.get($settings, font-style) {
+    $attributes: $settings;
+    font-style: map.get($attributes, font-style);
+  }
+
+  //line-height
+  @if map.get($settings, line-height) {
+    $attributes: $settings;
+    line-height: map.get($attributes, line-height);
+  }
+
+  //letter-spacing
+  @if map.get($settings, letter-spacing) {
+    $attributes: $settings;
+    letter-spacing: map.get($attributes, letter-spacing);
+  }
+
+  //text-transform
+  @if map.get($settings, text-transform) {
+    $attributes: $settings;
+    text-transform: map.get($attributes, text-transform);
+  }
+
+  //text-decoration
+  @if map.get($settings, text-decoration) {
+    $attributes: $settings;
+    text-decoration: map.get($attributes, text-decoration);
+  }
+
+  //color
+  @if map.get($settings, color) {
+    $attributes: $settings;
+    color: map.get($attributes, color);
+  }
+
+  //word-break
+  @if map.get($settings, word-break) {
+    $attributes: $settings;
+    word-break: map.get($attributes, word-break);
+  }
+}
+
+
+
+//normalize
+* {
+  font-family: map.get($typography-norm-settings, font-family);
+}
+
+body {
+  @each $value-name, $value in $typography-norm-settings {
+
+    @if $value-name == font-size-desktop {
+      @include typography-font-size( map.get($typography-norm-settings, font-size-desktop), map.get($typography-norm-settings, font-size-mobile));
+    } @else if $value-name == font-size-mobile {} @else {
+      #{$value-name}: #{$value};
+    }
+
+  }
+}
+
+//generate headline and text tags
+@each $tag, $settings in $typography-themes {
+  @if list.index($typography-tags, $tag) {
+    #{$tag} {
+
+      //font-family
+      @if map.get($settings, font-family) {
+        $attributes: $settings;
+        font-family: map.get($attributes, font-family);
+      } @else {
+        font-family: map.get($typography-norm-settings, font-family);
+      }
+
+      //font-weight
+      @if map.get($settings, font-weight) {
+        $attributes: $settings;
+        font-weight: map.get($attributes, font-weight);
+      } @else {
+        font-weight: map.get($typography-norm-settings, font-weight);
+      }
+
+      //font-style
+      @if map.get($settings, font-style) {
+        $attributes: $settings;
+        font-style: map.get($attributes, font-style);
+      } @else {
+        font-style: map.get($typography-norm-settings, font-style);
+      }
+
+      //line-height
+      @if map.get($settings, line-height) {
+        $attributes: $settings;
+        line-height: map.get($attributes, line-height);
+      } @else {
+        line-height: map.get($typography-norm-settings, line-height);
+      }
+
+      //letter-spacing
+      @if map.get($settings, letter-spacing) {
+        $attributes: $settings;
+        letter-spacing: map.get($attributes, letter-spacing);
+      } @else {
+        letter-spacing: map.get($typography-norm-settings, letter-spacing);
+      }
+
+      //text-transform
+      @if map.get($settings, text-transform) {
+        $attributes: $settings;
+        text-transform: map.get($attributes, text-transform);
+      } @else {
+        text-transform: map.get($typography-norm-settings, text-transform);
+      }
+
+      //text-decoration
+      @if map.get($settings, text-decoration) {
+        $attributes: $settings;
+        text-decoration: map.get($attributes, text-decoration);
+      } @else {
+        text-decoration: map.get($typography-norm-settings, text-decoration);
+      }
+
+      //color
+      @if map.get($settings, color) {
+        $attributes: $settings;
+        color: map.get($attributes, color);
+      } @else {
+        color: map.get($typography-norm-settings, color);
+      }
+
+      //word-break
+      @if map.get($settings, word-break) {
+        $attributes: $settings;
+        word-break: map.get($attributes, word-break);
+      } @else {
+        word-break: map.get($typography-norm-settings, word-break);
+      }
+
+      //font-size
+      @if map.get($settings, font-size-desktop) and map.get($settings, font-size-mobile) {
+        $attributes: $settings;
+        @include typography-font-size( map.get($attributes, font-size-desktop), map.get($attributes, font-size-mobile));
+      } @else {
+        @include typography-font-size( map.get($typography-norm-settings, font-size-desktop), map.get($typography-norm-settings, font-size-mobile));
+      }
+
+    }
+  }
+}
+
+
+
+//typo elements (typo class with font-size)
+@mixin typography-elements($breakpoint) {
+
+  $shortcode: typo;
+  $exclude-type: typography-elements;
+
+  @each $tag, $settings in $typography-themes {
+
+    $excludes: map.get($settings, exclude);
+    @debug $exclude-type;
+    @if list.index($excludes, $exclude-type) == null {
+
+      @if map.get($settings, font-size-desktop) and map.get($settings, font-size-mobile) {
+        .#{$breakpoint}#{$shortcode}-#{$tag} {
+          @include typography-attributes($settings);
+
+          //font-size
+          @if map.get($settings, font-size-desktop) and map.get($settings, font-size-mobile) {
+            $attributes: $settings;
+            @include typography-font-size( map.get($attributes, font-size-desktop), map.get($attributes, font-size-mobile));
+          }
+
+          //additional styles
+          @if map.get($settings, addons) {
+            $attributes: map.get($settings, addons);
+            @each $attribute, $value in $attributes {
+              #{$attribute}: #{$value};
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+
+//typo style (typo class without font-size)
+@mixin typography-style($breakpoint) {
+
+  $shortcode: typo-style;
+  $exclude-type: typography-style;
+
+  @each $tag, $settings in $typography-themes {
+
+    $excludes: map.get($settings, exclude);
+    @if list.index($excludes, $exclude-type) == null {
+
+      @if map.get($settings, font-size-desktop) and map.get($settings, font-size-mobile) {
+        .#{$breakpoint}#{$shortcode}-#{$tag} {
+          @include typography-attributes($settings);
+
+          //additional styles
+          @if map.get($settings, addons) {
+            $attributes: map.get($settings, addons);
+            @each $attribute, $value in $attributes {
+              #{$attribute}: #{$value};
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+}
+
+
+//font-size
+@mixin font-size($breakpoint) {
+
+  $shortcode: fsi;
+  $exclude-type: font-size;
+
+  @each $tag, $settings in $typography-themes {
+
+    $excludes: map.get($settings, exclude);
+    @if list.index($excludes, $exclude-type) == null {
+
+      @if map.get($settings, font-size-desktop) and map.get($settings, font-size-mobile) {
+        .#{$breakpoint}#{$shortcode}-#{$tag} {
+          $attributes: $settings;
+          @include typography-font-size( map.get($attributes, font-size-desktop), map.get($attributes, font-size-mobile));
+        }
+      }
+      @if map.get($settings, font-size) {
+        .#{$breakpoint}#{$shortcode}-#{$tag} {
+          $attributes: $settings;
+          font-size: map.get($attributes, font-size);
+        }
+      }
+
+    }
+  }
+}
+
+
+//font-family
+@mixin font-family($breakpoint) {
+  $shortcode-ff: ff;
+  @each $name, $font in $font-families {
+    .#{$breakpoint}#{$shortcode-ff}-#{$name} {
+      font-family: #{$font};
+    }
+  }
+}
+
+
+//font-style
+@mixin font-style($breakpoint) {
+  $shortcode-fs: fs;
+  $font-styles: (normal, italic, oblique, initial, inherit);
+  @each $style in $font-styles {
+    .#{$breakpoint}#{$shortcode-fs}-#{$style} {
+      font-style: #{$style};
+    }
+  }
+}
+
+
+//font-weight
+@mixin font-weight($breakpoint) {
+  $shortcode-fw: fw;
+  @each $name, $weight in $font-weights {
+    .#{$breakpoint}#{$shortcode-fw}-#{$name} {
+      font-weight: #{$weight};
+    }
+  }
+}
+
+
+//line-height
+@mixin line-height($breakpoint) {
+  $shortcode-lh: lh;
+  @each $name, $height in $line-heights {
+    .#{$breakpoint}#{$shortcode-lh}-#{$name} {
+      line-height: #{$height};
+    }
+  }
+}
+
+
+//text align
+@mixin text-align($breakpoint) {
+  $shortcode-ta: ta;
+  $text-aligns : (left, right, center, justify);
+  @each $align in $text-aligns {
+    .#{$breakpoint}#{$shortcode-ta}-#{$align} {
+      text-align: #{$align};
+    }
+  }
+}
+
+
+//letter-spacing
+@mixin letter-spacing($breakpoint) {
+  $shortcode-ls: ls;
+  @each $name, $spacing in $letter-spacings {
+    .#{$breakpoint}#{$shortcode-ls}-#{$name} {
+      letter-spacing: #{$spacing};
+    }
+  }
+}
+
+
+//text-decoration
+@mixin text-decoration($breakpoint) {
+  $shortcode-td: td;
+  $text-decorations : (none, underline, line-through);
+  @each $decoration in $text-decorations {
+
+    .#{$breakpoint}#{$shortcode-td}-#{$decoration} {
+      text-decoration: #{$decoration};
+    }
+
+    @if $textdecorationHoverable == true {
+      .#{$breakpoint}#{$shortcode-td}\:hover-#{$decoration}:hover {
+        text-decoration: #{$decoration};
+      }
+    }
+
+    @if $textdecorationFocusable == true {
+      .#{$breakpoint}#{$shortcode-td}\:focus-#{$decoration}:focus {
+        text-decoration: #{$decoration};
+      }
+    }
+  }
+}
+
+
+//text-transform
+@mixin text-transform($breakpoint) {
+  $shortcode-tt: tt;
+  $text-transforms: (uppercase, lowercase, capitalize, none);
+  @each $transform in $text-transforms {
+    .#{$breakpoint}#{$shortcode-tt}-#{$transform} {
+      text-transform: #{$transform};
+    }
+  }
+}
+
+
+//word-break
+@mixin word-break($breakpoint) {
+  $shortcode-wb: wb;
+  $word-breaks: (none: normal, break: break-word, break-all:break-all);
+  @each $name, $break in $word-breaks {
+    .#{$breakpoint}#{$shortcode-wb}-#{$name} {
+      word-break: #{$break};
+    }
+  }
+}
+
+
+
+//export typography utility
+@mixin typography($breakpoint) {
+  @include typography-elements($breakpoint);
+  @include typography-style($breakpoint);
+  @include font-size($breakpoint);
+  @include font-family($breakpoint);
+  @include font-weight($breakpoint);
+  @include font-style($breakpoint);
+  @include line-height($breakpoint);
+  @include text-align($breakpoint);
+  @include letter-spacing($breakpoint);
+  @include text-decoration($breakpoint);
+  @include text-transform($breakpoint);
+  @include word-break($breakpoint);
+}
+
+

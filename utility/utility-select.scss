@@ -1,0 +1,22 @@
+//utility: select
+
+//css: .select-{value} bsp. select-none
+
+@mixin select($breakpoint) {
+
+  $shortcode: select;
+
+  $values: (none, text, all, auto);
+
+  @each $value in $values {
+
+    .#{$breakpoint}#{$shortcode}-#{$value} {
+      -ms-user-select: #{$value};
+      -moz-user-select: #{$value};
+      -webkit-user-select: #{$value};
+      user-select: #{$value};
+    }
+
+  }
+
+}

@@ -1,0 +1,29 @@
+//utility: zindex
+
+//css: .z-{name} bsp. z-100
+
+@mixin zindex($breakpoint) {
+
+  $shortcode: z;
+
+  @each $zindex-name, $zindex in $zindexes {
+
+    .#{$breakpoint}#{$shortcode}-#{$zindex-name} {
+      z-index: $zindex;
+    }
+
+    @if ($colorHoverable == true) {
+      .#{$breakpoint}#{$shortcode}\:hover-#{$zindex-name}:hover {
+        z-index: $zindex;
+      }
+    }
+
+    @if ($colorFocusable == true) {
+      .#{$breakpoint}#{$shortcode}\:focus-#{$zindex-name}:focus {
+        z-index: $zindex;
+      }
+    }
+
+  }
+
+}

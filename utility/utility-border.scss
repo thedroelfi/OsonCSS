@@ -1,0 +1,76 @@
+//utility: border
+@mixin border($breakpoint) {
+
+    $shortcode: bor;
+
+    $border-positions : (null: null, -t: -top, -l: -left, -r: -right, -b: -bottom);
+
+    //border width
+    @each $name, $value in $border-widths {
+
+      @each $position-name, $position-value in $border-positions {
+
+        .#{$breakpoint}#{$shortcode}#{$position-name}-width-#{$name} {
+          border#{$position-value}-width: #{$value};
+        }
+
+      }
+    }
+
+
+    //border style
+    $border-styles : (none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset);
+    @each $style in $border-styles {
+
+      @each $position-name, $position-value in $border-positions {
+
+        .#{$breakpoint}#{$shortcode}#{$position-name}-style-#{$style} {
+          border#{$position-value}-style: #{$style};
+        }
+
+      }
+
+    }
+
+
+    //border radius
+    $border-radius-position : (null: null, -tl: -top-left, -tr: -top-right, -bl: -bottom-left, -br: -bottom-right);
+    @each $name, $value in $border-radius {
+
+        @each $position-name, $position-value in $border-radius-position {
+
+          .#{$breakpoint}#{$shortcode}#{$position-name}-radius-#{$name} {
+            border#{$position-value}-radius: #{$value};
+          }
+
+        }
+
+    }
+
+
+    //border color
+    @each $color-name, $color-value in $colors {
+
+      @each $position-name, $position-value in $border-positions {
+
+        .#{$breakpoint}#{$shortcode}#{$position-name}-c-#{$color-name} {
+          border#{$position-value}-color: #{$color-value};
+        }
+
+        @if ($bordercolorHoverable == true) {
+          .#{$breakpoint}#{$shortcode}#{$position-name}-c\:hover-#{$color-name}:hover {
+            border#{$position-value}-color: #{$color-value};
+          }
+        }
+
+        @if ($bordercolorFocusable == true) {
+          .#{$breakpoint}#{$shortcode}#{$position-name}-c\:focus-#{$color-name}:focus {
+            border#{$position-value}-color: #{$color-value};
+          }
+        }
+
+      }
+
+    }
+
+}

@@ -1,0 +1,29 @@
+//utility: opacity
+
+//css: .opacity-{value} bsp. opacity-100
+
+@mixin opacity($breakpoint) {
+
+  $shortcode: opacity;
+
+  @each $opacity-name, $opacity-value in $opacities {
+
+    .#{$breakpoint}#{$shortcode}-#{$opacity-name} {
+      opacity: $opacity-value;
+    }
+
+    @if ($opacityHoverable == true) {
+      .#{$breakpoint}#{$shortcode}\:hover-#{$opacity-name}:hover {
+        opacity: $opacity-value;
+      }
+    }
+
+    @if ($opacityFocusable == true) {
+      .#{$breakpoint}#{$shortcode}\:focus-#{$opacity-name}:focus {
+        opacity: $opacity-value;
+      }
+    }
+
+  }
+
+}

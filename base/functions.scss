@@ -1,0 +1,8 @@
+//custom functions
+@function responsive-value($min, $max, $bp) {
+  @if $bp == null and $typography-breakpoint {
+    @return clamp(#{$min}px, #{100vw * ($max / $typography-breakpoint)}, #{$max}px);
+  } @else {
+    @return clamp(#{$min}px, #{100vw * ($max / $bp)}, #{$max}px);
+  }
+}

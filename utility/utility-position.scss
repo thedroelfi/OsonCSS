@@ -1,0 +1,17 @@
+//utility: position
+
+//css: .{value} bsp. relative
+
+@mixin position($breakpoint) {
+
+  $values: (relative, absolute, fixed, static, sticky, unset);
+
+  @each $value in $values {
+
+    .#{$breakpoint}#{$value} {
+      position: $value;
+    }
+
+  }
+
+}

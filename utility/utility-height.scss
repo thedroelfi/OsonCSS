@@ -1,0 +1,78 @@
+//utility: height, max-height, min-height
+
+//css: .h-{name} bsp. h-100, mah-150
+
+@mixin height($breakpoint) {
+
+  $shortcode-height: h;
+
+  $shortcode-maxheight: mah;
+
+  $shortcode-minheight: mih;
+
+  //render height
+  @each $height-name, $height-value in $heights {
+
+    .#{$breakpoint}#{$shortcode-height}-#{$height-name} {
+      height: $height-value;
+    }
+
+    @if ($heightHoverable == true) {
+      .#{$breakpoint}#{$shortcode-height}\:hover-#{$height-name}:hover {
+        height: $height-value;
+      }
+    }
+
+    @if ($heightFocusable == true) {
+      .#{$breakpoint}#{$shortcode-height}\:focus-#{$height-name}:focus {
+        height: $height-value;
+      }
+    }
+
+  }
+
+
+  //render max-height
+  @each $maxheight-name, $maxheight-value in $maxheights {
+
+    .#{$breakpoint}#{$shortcode-maxheight}-#{$maxheight-name} {
+      max-height: $maxheight-value;
+    }
+
+    @if ($maxheightHoverable == true) {
+      .#{$breakpoint}#{$shortcode-maxheight}\:hover-#{$maxheight-name}:hover {
+        max-height: $maxheight-value;
+      }
+    }
+
+    @if ($maxheightFocusable == true) {
+      .#{$breakpoint}#{$shortcode-maxheight}\:focus-#{$maxheight-name}:focus {
+        max-height: $maxheight-value;
+      }
+    }
+
+  }
+
+
+  //render min-height
+  @each $minheight-name, $minheight-value in $minheights {
+
+    .#{$breakpoint}#{$shortcode-minheight}-#{$minheight-name} {
+      min-height: $minheight-value;
+    }
+
+    @if ($minheightHoverable == true) {
+      .#{$breakpoint}#{$shortcode-minheight}\:hover-#{$minheight-name}:hover {
+        min-height: $minheight-value;
+      }
+    }
+
+    @if ($minheightFocusable == true) {
+      .#{$breakpoint}#{$shortcode-minheight}\:focus-#{$minheight-name}:focus {
+        min-height: $minheight-value;
+      }
+    }
+
+  }
+
+}

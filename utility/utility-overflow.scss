@@ -1,0 +1,27 @@
+//utility: overflow
+
+//css: .overflow-{value} bsp. overflow-hidden
+
+@mixin overflow($breakpoint) {
+
+  $shortcode: overflow;
+
+  $values: (hidden, auto, scroll, visible);
+
+  @each $value in $values {
+
+    .#{$breakpoint}#{$shortcode}-#{$value} {
+      overflow: #{$value};
+    }
+
+    .#{$breakpoint}#{$shortcode}-x-#{$value} {
+      overflow-x: #{$value};
+    }
+
+    .#{$breakpoint}#{$shortcode}-y-#{$value} {
+      overflow-y: #{$value};
+    }
+
+  }
+
+}

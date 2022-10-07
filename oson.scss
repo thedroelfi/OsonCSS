@@ -1,0 +1,29 @@
+/*
+
+    OSON.css | version 1.1.1 - 07.10
+
+*/
+
+
+//rules
+@use "sass:map";
+@use "sass:list";
+
+
+//config
+@import "settings/settings";
+@import "base/functions";
+@import "base/values";
+
+
+//normalize
+@import "base/normalize";
+
+
+//components
+@import "component/component-grid";
+@import "component/component-cta";
+
+
+//utilities
+@import "utility/utilities";

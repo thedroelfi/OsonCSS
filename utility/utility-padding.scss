@@ -1,0 +1,29 @@
+//utility: padding
+
+//css: .p{direction}{value} bsp. .pt-50
+
+@mixin padding($breakpoint) {
+
+  $shortcode: p;
+
+  $directions: ('t' top, 'r' right, 'b' bottom, 'l' left, 'tb' top bottom, 'lr' left right);
+
+  @each $padding-name, $padding in $paddings {
+
+    .#{$breakpoint}#{$shortcode}-#{$padding-name} {
+      padding: $padding;
+    }
+
+    @each $direction-name, $direction, $second-direction in $directions {
+
+      .#{$breakpoint}#{$shortcode}#{$direction-name}-#{$padding-name} {
+        padding-#{$direction}: $padding;
+        @if $second-direction != null {
+          padding-#{$second-direction}: $padding;
+        }
+      }
+
+    }
+  }
+
+}

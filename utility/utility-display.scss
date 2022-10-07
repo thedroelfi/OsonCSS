@@ -1,0 +1,17 @@
+//utility: display
+
+//css: .{value} bsp. block, none
+
+@mixin display($breakpoint) {
+
+  $values: (block, inline-block, flex, none);
+
+  @each $value in $values {
+
+    .#{$breakpoint}#{$value} {
+      display: #{$value};
+    }
+
+  }
+
+}

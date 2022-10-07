@@ -1,0 +1,78 @@
+//utility: width, max-width, min-width
+
+//css: .w-{name} bsp. w-100, maw-150
+
+@mixin width($breakpoint) {
+
+  $shortcode-width: w;
+
+  $shortcode-maxwidth: maw;
+
+  $shortcode-minwidth: miw;
+
+  //render widths
+  @each $width-name, $width-value in $widths {
+
+    .#{$breakpoint}#{$shortcode-width}-#{$width-name} {
+      width: $width-value;
+    }
+
+    @if ($widthHoverable == true) {
+      .#{$breakpoint}#{$shortcode-width}\:hover-#{$width-name}:hover {
+        width: $width-value;
+      }
+    }
+
+    @if ($widthFocusable == true) {
+      .#{$breakpoint}#{$shortcode-width}\:focus-#{$width-name}:focus {
+        width: $width-value;
+      }
+    }
+
+  }
+
+
+  //render max-widths
+  @each $maxwidth-name, $maxwidth-value in $maxwidths {
+
+    .#{$breakpoint}#{$shortcode-maxwidth}-#{$maxwidth-name} {
+      max-width: $maxwidth-value;
+    }
+
+    @if ($maxwidthHoverable == true) {
+      .#{$breakpoint}#{$shortcode-maxwidth}\:hover-#{$maxwidth-name}:hover {
+        max-width: $maxwidth-value;
+      }
+    }
+
+    @if ($maxwidthFocusable == true) {
+      .#{$breakpoint}#{$shortcode-maxwidth}\:focus-#{$maxwidth-name}:focus {
+        max-width: $maxwidth-value;
+      }
+    }
+
+  }
+
+
+  //render min-widths
+  @each $minwidth-name, $minwidth-value in $minwidths {
+
+    .#{$breakpoint}#{$shortcode-minwidth}-#{$minwidth-name} {
+      min-width: $minwidth-value;
+    }
+
+    @if ($minwidthHoverable == true) {
+      .#{$breakpoint}#{$shortcode-minwidth}\:hover-#{$minwidth-name}:hover {
+        min-width: $minwidth-value;
+      }
+    }
+
+    @if ($minwidthFocusable == true) {
+      .#{$breakpoint}#{$shortcode-minwidth}\:focus-#{$minwidth-name}:focus {
+        min-width: $minwidth-value;
+      }
+    }
+
+  }
+
+}

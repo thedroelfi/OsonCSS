@@ -1,0 +1,91 @@
+//utility: flexbox
+
+@mixin flexbox($breakpoint) {
+
+  $flex-shortcode: flex;
+
+  //flex-direction
+  $flex-directions: (col: column, col-reverse: column-reverse, row: row, row-reverse: row-reverse, unset: unset);
+
+  @each $name, $value in $flex-directions {
+    .#{$breakpoint}#{$flex-shortcode}-#{$name} {
+      flex-direction: $value;
+    }
+  }
+
+
+  //flex-wrap
+  $flex-wraps: (wrap: wrap, reverse: wrap-reverse, nowrap: nowrap, unset: unset);
+
+  @each $name, $value in $flex-wraps {
+    .#{$breakpoint}#{$flex-shortcode}-#{$name} {
+      flex-wrap: $value;
+    }
+  }
+
+
+  //justify-content
+  $justify-content-shortcode: justify-content;
+
+  $justify-contents: (start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, unset: unset);
+
+  @each $name, $value in $justify-contents {
+    .#{$breakpoint}#{$justify-content-shortcode}-#{$name} {
+      justify-content: $value;
+    }
+  }
+
+
+  //align-items
+  $align-items-shortcode: align-items;
+
+  $align-items: (start: flex-start, end: flex-end, center: center, stretch: stretch, baseline: baseline, unset: unset);
+
+  @each $name, $value in $align-items {
+    .#{$breakpoint}#{$align-items-shortcode}-#{$name} {
+      align-items: $value;
+    }
+  }
+
+
+  //align-content
+  $align-content-shortcode: align-content;
+
+  $align-contents: (start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, stretch: stretch, unset: unset);
+
+  @each $name, $value in $align-contents {
+    .#{$breakpoint}#{$align-content-shortcode}-#{$name} {
+      align-content: $value;
+    }
+  }
+
+
+  //flex-shrink
+  $flex-shrinks: (null: 1, -none: 0);
+
+  @each $name, $value in $flex-shrinks {
+    .#{$breakpoint}#{$flex-shortcode}-shrink#{$name} {
+      flex-shrink: $value;
+    }
+  }
+
+
+  //flex-grow
+  $flex-growes: (null: 1, -none: 0);
+
+  @each $name, $value in $flex-growes {
+    .#{$breakpoint}#{$flex-shortcode}-grow#{$name} {
+      flex-grow: $value;
+    }
+  }
+
+
+  //order
+  $order-shortcode: order;
+
+  @each $name, $value in $orders {
+    .#{$breakpoint}#{$order-shortcode}-#{$name} {
+      order: $value;
+    }
+  }
+}

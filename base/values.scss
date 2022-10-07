@@ -1,0 +1,222 @@
+//########### OSON.css values ###########
+@import "../settings/custom-values";
+@import "value-stacks";
+
+
+
+//values: $valuesPXp, $valuesPXn, $valuesPERp, $valuesPERn, $valuesVWp, $valuesVWn, $valuesVHp, $valuesVHn
+$value-additions: (
+        0: 0,
+        auto: auto,
+        unset : unset,
+        none : none,
+);
+
+
+//width
+$value-additions-width: (
+        0: 0,
+        auto: auto,
+);
+$widthsMerge1: map.merge($valuesPXp, $valuesPXn);
+$widthsMerge2: map.merge($widthsMerge1, $valuesPERp);
+$widthsMerge3: map.merge($widthsMerge2, $valuesPERn);
+$widthsMerge4: map.merge($widthsMerge3, $valuesVWp);
+$widthsMerge5: map.merge($widthsMerge4, $valuesVWn);
+$widthsMerge6: map.merge($widthsMerge5, $valuesVHp);
+$widthsMerge7: map.merge($widthsMerge6, $valuesVHn);
+$widthsMerge8: map.merge($widthsMerge7, $value-additions-width);
+$widthsMerge9: map.merge($widthsMerge8, $custom-widths);
+$widths: $widthsMerge9;
+
+//max-width
+$maxwidths: map.merge($widthsMerge8, $custom-maxwidths);
+
+//min-width
+$minwidths: map.merge($widthsMerge8, $custom-minwidths);
+
+
+
+//height
+$heightsMerge1: map.merge($valuesPXp, $valuesPXn);
+$heightsMerge2: map.merge($heightsMerge1, $valuesPERp);
+$heightsMerge3: map.merge($heightsMerge2, $valuesPERn);
+$heightsMerge4: map.merge($heightsMerge3, $valuesVWp);
+$heightsMerge5: map.merge($heightsMerge4, $valuesVWn);
+$heightsMerge6: map.merge($heightsMerge5, $valuesVHp);
+$heightsMerge7: map.merge($heightsMerge6, $valuesVHn);
+$heightsMerge8: map.merge($heightsMerge7, $value-additions-width);
+$heightsMerge9: map.merge($heightsMerge8, $custom-heights);
+$heights: $heightsMerge9;
+
+//max-height
+$maxheights: map.merge($heightsMerge8, $custom-maxheights);
+
+//min-height
+$minheights: map.merge($heightsMerge8, $custom-minheights);
+
+
+
+//margin
+$value-additions-margin: (
+        0: 0,
+        auto: auto,
+);
+$marginMerge1: map.merge($valuesPXp, $valuesPXn);
+$marginMerge2: map.merge($marginMerge1, $value-additions-margin);
+$margins: map.merge($marginMerge2, $custom-margins);
+
+
+
+//padding
+$value-additions-padding: (
+        0: 0,
+        auto: auto,
+);
+$paddingMerge1: map.merge($valuesPXp, $valuesPXn);
+$paddingMerge2: map.merge($paddingMerge1, $value-additions-padding);
+$paddings: map.merge($paddingMerge2, $custom-paddings);
+
+
+
+//positions (top, left, right, bottom)
+$value-additions-positions: (
+        0: 0,
+        auto: auto,
+);
+$positionsMerge1: map.merge($valuesPXp, $valuesPXn);
+$positionsMerge2: map.merge($positionsMerge1, $valuesPERp);
+$positionsMerge3: map.merge($positionsMerge2, $valuesPERn);
+$positionsMerge4: map.merge($positionsMerge3, $value-additions-positions);
+$positions: map.merge($positionsMerge4, $custom-positions);
+
+
+
+//colors
+$colors: $custom-colors;
+
+
+
+//font
+$font-families: $custom-font-families;
+
+//font-weights
+$font-weights-base: (
+        regular : 400,
+        medium: 500,
+        semibold: 600,
+        bold: 700,
+        extrabold: 800,
+        black: 900,
+);
+$font-weights: map.merge($font-weights-base, $custom-font-weights);
+
+//line-heights
+$base-line-heights: (
+        10: 1.0,
+        11: 1.1,
+        12: 1.2,
+        13: 1.3,
+        14: 1.4,
+        15: 1.5,
+        16: 1.6,
+        40: 40px,
+        48: 48px,
+        50: 50px
+);
+$line-heights: map.merge($base-line-heights, $custom-line-heights);
+
+//letter-spacing
+$base-letter-spacings : (
+        normal: normal,
+        1: 1px,
+        2: 2px
+);
+$letter-spacings: map.merge($base-letter-spacings, $custom-letter-spacings);
+
+
+
+//opacities
+$base-opacities: (0:0, 5:0.05, 10:0.1, 15:0.15, 20:0.2, 25:0.25, 30:0.3, 35:0.35, 40:0.4, 45:0.45, 50:0.5, 55:0.55, 60:0.6, 65:0.65, 70:0.7, 75:0.75, 80:0.8, 85:0.85, 90:0.9, 95:0.95, 100:1);
+$opacities: map.merge($base-opacities, $custom-opacities);
+
+
+
+//orders
+$base-orders: (
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        6: 6,
+        7: 7,
+        8: 8,
+        9: 9,
+        10: 10,
+        11: 11,
+        12: 12,
+        first: -9999,
+        last: 9999,
+        none: 0,
+);
+$orders: map.merge($base-orders, $custom-orders);
+
+
+
+//zindex
+$base-zindexes: (
+    -1: -1,
+        0: 0,
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        6: 6,
+        7: 7,
+        8: 8,
+        9: 9,
+        10: 10,
+        100: 100,
+        1000: 1000,
+        auto: auto,
+);
+$zindexes: map.merge($base-zindexes, $custom-zindexes);
+
+
+
+//border
+//border-width
+$base-border-widths: (
+        0: 0,
+        1: 1px,
+        2: 2px,
+        3: 3px,
+        4: 4px,
+        5: 5px,
+);
+$border-widths: map.merge($base-border-widths, $custom-border-widths);
+
+//border-radius
+$base-border-radius: (
+        0: 0,
+        5: 5px,
+        8: 8px,
+        10: 10px,
+        20: 20px,
+        30: 30px,
+        25: 25px,
+        50: 50px,
+        55: 55px,
+        60: 60px,
+        50p: 50%,
+);
+$custom-border-radius: (
+        0: 0,
+        5: 5px,
+        8: 8px,
+        10: 10px,
+        50p: 50%
+);
+$border-radius: map.merge($base-border-radius, $custom-border-radius);

@@ -1,0 +1,179 @@
+//########### OSON.css custom values ###########
+
+//color
+$prime: #f1c40f;
+$second: #f39c12;
+$contrast: #34495e;
+$custom-colors: (
+        prime: $prime,
+        second: $second,
+        contrast: $contrast,
+);
+
+
+
+
+//font
+$font-headline: prometo, 'Manrope', sans-serif;
+$font-text: 'Manrope', sans-serif;
+$font-highlight: prometo, 'Manrope', sans-serif;
+
+$custom-font-families : (
+        headline: $font-headline,
+        text: $font-text,
+        hightlight: $font-highlight,
+);
+
+$custom-font-weights: ();
+
+$custom-line-heights: (
+        40: 40px,
+        48: 48px,
+        50: 50px
+);
+
+$custom-letter-spacings : ();
+
+
+
+
+//typography
+$typography-breakpoint: 1920;
+
+$typography-norm-settings : (
+        font-family: Lato,
+        font-weight: 400,
+        font-style: normal,
+        font-size-desktop: 18,
+        font-size-mobile: 16,
+
+        line-height: 1.2,
+        letter-spacing: normal,
+
+        text-transform: none,
+        text-decoration: none,
+
+        color: #000,
+
+        word-break: normal,
+);
+
+$typography-themes: (
+        h1: (
+                font-family: serif,
+                font-weight: 700,
+                font-style: normal,
+                font-size-desktop: 50,
+                font-size-mobile: 35,
+                line-height: 1.2,
+                letter-spacing: normal,
+                text-transform: none,
+                text-decoration: none,
+                color: #000,
+                word-break: normal,
+                exclude: (typography-elements, font-size)
+        ),
+        h2: (
+                font-family: serif,
+                font-weight: 700,
+                font-style: normal,
+                font-size-desktop: 40,
+                font-size-mobile: 29,
+                line-height: 1.2,
+                letter-spacing: normal,
+                text-transform: none,
+                text-decoration: none,
+                color: #000,
+                word-break: normal,
+                exclude: (typography-style)
+        ),
+        h3: (
+                font-family: serif,
+                font-weight: 700,
+                font-style: normal,
+                font-size-desktop: 35,
+                font-size-mobile: 26,
+                line-height: 1.2,
+                letter-spacing: normal,
+                text-transform: none,
+                text-decoration: none,
+                color: #000,
+                word-break: normal,
+                addons: (
+                        padding: 50px,
+                        margin: 30px
+                ),
+                exclude: (typography-style, typography-elements)
+        )
+);
+
+
+
+
+//width, max-width, min-width
+$custom-widths: (
+        1920: 1920px,
+        2560: 2560px,
+);
+
+$custom-maxwidths: ();
+
+$custom-minwidths: ();
+
+
+
+
+//height, max-height, min-height
+$custom-heights: (
+        2600: 2600px,
+);
+
+$custom-maxheights: ();
+
+$custom-minheights: ();
+
+
+
+
+//margin
+$custom-margins: ();
+
+
+
+
+//padding
+$custom-paddings: ();
+
+
+
+
+//positions (top, left, right, bottom)
+$custom-positions: ();
+
+
+
+
+//border
+//border-width
+$custom-border-widths: ();
+
+//border-radius
+$custom-border-radius: ();
+
+
+
+
+//opacity
+$custom-opacities: ();
+
+
+
+
+//order
+$custom-orders: ();
+
+
+
+
+//zindex
+$custom-zindexes: ();

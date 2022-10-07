@@ -1,0 +1,47 @@
+//utility: color
+
+//css: .c-{name} bsp. c-black, bgc-black
+
+@mixin color($breakpoint) {
+
+  $shortcode-color: c;
+
+  $shortcode-background-color: bgc;
+
+  @each $color-name, $color-code in $colors {
+
+    .#{$breakpoint}#{$shortcode-color}-#{$color-name} {
+      color: $color-code;
+    }
+
+    @if ($colorHoverable == true) {
+      .#{$breakpoint}#{$shortcode-color}\:hover-#{$color-name}:hover {
+        color: $color-code;
+      }
+    }
+
+    @if ($colorFocusable == true) {
+      .#{$breakpoint}#{$shortcode-color}\:focus-#{$color-name}:focus {
+        color: $color-code;
+      }
+    }
+
+    .#{$breakpoint}#{$shortcode-background-color}-#{$color-name} {
+      background-color: $color-code;
+    }
+
+    @if ($colorHoverable == true) {
+      .#{$breakpoint}#{$shortcode-background-color}\:hover-#{$color-name}:hover {
+        background-color: $color-code;
+      }
+    }
+
+    @if ($colorFocusable == true) {
+      .#{$breakpoint}#{$shortcode-background-color}\:focus-#{$color-name}:focus {
+        color: $color-code;
+      }
+    }
+
+  }
+
+}
