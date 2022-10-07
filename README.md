@@ -1,2 +1,2 @@
-# OsonCss
- A lightweight SCSS framework for Websites
+# OsonCSS
+ A lightweight SCSS framework for websites
