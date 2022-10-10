@@ -1,8 +1,41 @@
 //custom functions
+
+
+//responsive value
 @function responsive-value($min, $max, $bp) {
   @if $bp == null and $typography-breakpoint {
     @return clamp(#{$min}px, #{100vw * ($max / $typography-breakpoint)}, #{$max}px);
   } @else {
     @return clamp(#{$min}px, #{100vw * ($max / $bp)}, #{$max}px);
+  }
+}
+
+
+//breakpoints
+@mixin breakpoint($bp) {
+  @if map.get($breakpoints, $bp) and map.get($breakpoints, $bp) != 0 {
+    @media (max-width: #{map.get($breakpoints, $bp)}px) {
+      @content
+    }
+  }
+}
+
+
+//transition
+@mixin transition($property, $duration, $delay, $function) {
+  @if $property == null {
+    $property: var(--oson-transition-property);
+  }
+  @if $duration == null {
+    $duration: var(--oson-transition-duration);
+  }
+  @if $delay == null {
+    $delay: var(--oson-transition-delay);
+  }
+  @if $function == null {
+    $function: var(--oson-transition-function);
+  }
+  @each $compatibility in $compabilities {
+    #{$compatibility}transition: $property $duration $delay $function;
   }
 }

@@ -1,7 +1,14 @@
-//########### OSON.css values ###########
+//########### OsonCSS values ###########
 @import "../settings/custom-values";
 @import "value-stacks";
 
+
+
+//breakpoints
+$breakpoints-base: (
+        z: 0
+);
+$breakpoints: map.merge($breakpoints-base, $custom-breakpoints);
 
 
 //values: $valuesPXp, $valuesPXn, $valuesPERp, $valuesPERn, $valuesVWp, $valuesVWn, $valuesVHp, $valuesVHn

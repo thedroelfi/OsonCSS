@@ -1,4 +1,18 @@
-//########### OSON.css custom values ###########
+//########### OsonCSS custom values ###########
+
+
+
+
+//breakpoints
+$custom-breakpoints: (
+        xxl: 1920,
+        xl: 1366,
+        lg: 1024,
+        md: 768
+);
+
+
+
 
 //color
 $prime: #f1c40f;
@@ -41,7 +55,7 @@ $custom-letter-spacings : ();
 $typography-breakpoint: 1920;
 
 $typography-norm-settings : (
-        font-family: Lato,
+        font-family: $font-text,
         font-weight: 400,
         font-style: normal,
         font-size-desktop: 18,
@@ -60,51 +74,51 @@ $typography-norm-settings : (
 
 $typography-themes: (
         h1: (
-                font-family: serif,
-                font-weight: 700,
-                font-style: normal,
-                font-size-desktop: 50,
-                font-size-mobile: 35,
-                line-height: 1.2,
-                letter-spacing: normal,
-                text-transform: none,
-                text-decoration: none,
-                color: #000,
-                word-break: normal,
-                exclude: (typography-elements, font-size)
+                font-size-desktop: 60,
+                font-size-mobile: 40,
         ),
         h2: (
-                font-family: serif,
-                font-weight: 700,
-                font-style: normal,
-                font-size-desktop: 40,
-                font-size-mobile: 29,
-                line-height: 1.2,
-                letter-spacing: normal,
-                text-transform: none,
-                text-decoration: none,
-                color: #000,
-                word-break: normal,
-                exclude: (typography-style)
+                font-size-desktop: 50,
+                font-size-mobile: 35,
         ),
         h3: (
-                font-family: serif,
-                font-weight: 700,
-                font-style: normal,
                 font-size-desktop: 35,
-                font-size-mobile: 26,
-                line-height: 1.2,
-                letter-spacing: normal,
-                text-transform: none,
-                text-decoration: none,
-                color: #000,
-                word-break: normal,
+                font-size-mobile: 28,
+        ),
+        h4: (
+                font-size-desktop: 24,
+                font-size-mobile: 20,
+        ),
+        h5: (
+                font-size-desktop: 20,
+                font-size-mobile: 18,
+        ),
+        h6: (
+                font-size-desktop: 18,
+                font-size-mobile: 16,
+        ),
+        p: (
+                font-size-desktop: 18,
+                font-size-mobile: 16,
+        ),
+        subline: (
                 addons: (
                         padding: 50px,
                         margin: 30px
                 ),
-                exclude: (typography-style, typography-elements)
+                exclude: (typography-style, typography-elements, font-size)
         )
+);
+
+
+
+
+//lists
+$list-norms: (
+        ul-style-type: disc,
+        ol-style-type: decimal,
+        list-spacing: 30px,
+        li-spacing: 10px
 );
 
 
@@ -131,6 +145,17 @@ $custom-heights: (
 $custom-maxheights: ();
 
 $custom-minheights: ();
+
+
+
+
+//transition
+$custom-transition-norm: (
+        property: all,
+        duration: 300ms,
+        delay: 0ms,
+        function: ease-in-out
+);
 
 
 

@@ -1,0 +1,94 @@
+//utility: list
+
+@mixin list-normalizing() {
+  ul {
+    list-style-type: var(--oson-list-ul-style-type);
+  }
+
+  ol {
+    list-style-type: var(--oson-list-ol-style-type);
+  }
+
+  ul, ol {
+    padding: 0 0 var(--oson-list-spacing) var(--oson-list-spacing);
+    margin: 0;
+
+    li {
+      padding: 0;
+      margin: 0 0 var(--oson-li-spacing) 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+
+@mixin is-list($breakpoint) {
+
+  $shortcode: list;
+
+  ul.#{$breakpoint}#{$shortcode} {
+    list-style-type: var(--oson-list-ul-style-type);
+  }
+
+  ol.#{$breakpoint}#{$shortcode} {
+    list-style-type: var(--oson-list-ol-style-type);
+  }
+
+  ul.#{$breakpoint}#{$shortcode}, ol.#{$breakpoint}#{$shortcode} {
+    padding: 0 0 var(--oson-list-spacing) var(--oson-list-spacing);
+    margin: 0;
+
+    li {
+      padding: 0;
+      margin: 0 0 var(--oson-li-spacing) 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+}
+
+
+@mixin no-list($breakpoint) {
+
+  $shortcode: no-list;
+
+  ul.#{$breakpoint}#{$shortcode}, ol.#{$breakpoint}#{$shortcode} {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+    li {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+}
+
+
+@mixin list-style-type($breakpoint) {
+
+  $shortcode: list-style;
+
+  $values: (disc, circle, square, decimal, georgian, none);
+
+  @each $value in $values {
+    ul.#{$breakpoint}#{$shortcode}-#{$value}, ol.#{$breakpoint}#{$shortcode}-#{$value} {
+      list-style-type: $value;
+    }
+  }
+
+}
+
+
+@mixin list($breakpoint) {
+  @include is-list($breakpoint);
+  @include no-list($breakpoint);
+  @include list-style-type($breakpoint);
+}

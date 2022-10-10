@@ -6,12 +6,98 @@
 
   $values: (relative, absolute, fixed, static, sticky, unset);
 
+  //positions
   @each $value in $values {
-
     .#{$breakpoint}#{$value} {
       position: $value;
     }
-
   }
 
+
+  //position values
+  $shortcode-top: t;
+  $shortcode-left: l;
+  $shortcode-right: r;
+  $shortcode-bottom: b;
+
+  @each $position-name, $position-value in $positions {
+    //top
+    .#{$breakpoint}#{$shortcode-top}-#{$position-name} {
+      top: $position-value;
+    }
+
+    //top hover
+    @if ($positionsHoverable == true) {
+      .#{$breakpoint}#{$shortcode-top}\:hover-#{$position-name}:hover {
+        top: $position-value;
+      }
+    }
+
+    //top focus
+    @if ($positionsFocusable == true) {
+      .#{$breakpoint}#{$shortcode-top}\:focus-#{$position-name}:focus {
+        top: $position-value;
+      }
+    }
+
+
+    //left
+    .#{$breakpoint}#{$shortcode-left}-#{$position-name} {
+      left: $position-value;
+    }
+
+    //left hover
+    @if ($positionsHoverable == true) {
+      .#{$breakpoint}#{$shortcode-left}\:hover-#{$position-name}:hover {
+        left: $position-value;
+      }
+    }
+
+    //left focus
+    @if ($positionsFocusable == true) {
+      .#{$breakpoint}#{$shortcode-left}\:focus-#{$position-name}:focus {
+        left: $position-value;
+      }
+    }
+
+
+    //right
+    .#{$breakpoint}#{$shortcode-right}-#{$position-name} {
+      right: $position-value;
+    }
+
+    //right hover
+    @if ($positionsHoverable == true) {
+      .#{$breakpoint}#{$shortcode-right}\:hover-#{$position-name}:hover {
+        right: $position-value;
+      }
+    }
+
+    //right focus
+    @if ($positionsFocusable == true) {
+      .#{$breakpoint}#{$shortcode-right}\:focus-#{$position-name}:focus {
+        right: $position-value;
+      }
+    }
+
+
+    //bottom
+    .#{$breakpoint}#{$shortcode-bottom}-#{$position-name} {
+      bottom: $position-value;
+    }
+
+    //bottom hover
+    @if ($positionsHoverable == true) {
+      .#{$breakpoint}#{$shortcode-bottom}\:hover-#{$position-name}:hover {
+        bottom: $position-value;
+      }
+    }
+
+    //bottom focus
+    @if ($positionsFocusable == true) {
+      .#{$breakpoint}#{$shortcode-bottom}\:focus-#{$position-name}:focus {
+        bottom: $position-value;
+      }
+    }
+  }
 }

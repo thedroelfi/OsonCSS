@@ -1,35 +1,24 @@
-//########### OSON.css settings ###########
-
-
-
-//breakpoints
-$breakpoints: (
-        z: 0,
-        xxl: 1920,
-        xl: 1366,
-        lg: 1024,
-        md: 768,
-);
+//########### OsonCSS settings ###########
 
 
 
 //utilities
 $utilities: (
-        typography: false,
-        margin: false,
-        padding: false,
-        cursor: false,
-        select: false,
-        overflow: false,
-        color: false,
-        display: false,
-        opacity: false,
-        flexbox: false,
-        position: false,
-        width: false,
-        height: false,
-        zindex: false,
-        positions-tlrb: false,
+        typography: true,
+        list: true,
+        margin: true,
+        padding: true,
+        cursor: true,
+        select: true,
+        overflow: true,
+        color: true,
+        display: true,
+        opacity: true,
+        flexbox: true,
+        position: true,
+        width: true,
+        height: true,
+        zindex: true,
         border: true
 );
 
@@ -47,6 +36,11 @@ $typographyResponsive: true;
 
 $textdecorationHoverable: true;
 $textdecorationFocusable: false;
+
+
+
+//list
+$listResponsive: true;
 
 
 
@@ -103,10 +97,7 @@ $zindexFocusable: false;
 //position (relative, absolute, etc.)
 $positionResponsive: true;
 
-
-
 //positions (top, left, right, bottom)
-$positionsResponsive: true;
 $positionsHoverable: true;
 $positionsFocusable: false;
 

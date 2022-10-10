@@ -1,7 +1,8 @@
-//OSON.css utilities
+//OsonCSS utilities
 
 //import all utilities
 @import "../utility/utility-typography";
+@import "../utility/utility-list";
 @import "../utility/utility-margin";
 @import "../utility/utility-padding";
 @import "../utility/utility-cursor";
@@ -15,8 +16,20 @@
 @import "../utility/utility-width";
 @import "../utility/utility-height";
 @import "../utility/utility-zindex";
-@import "../utility/utility-position-tlrb";
 @import "../utility/utility-border";
+
+
+//utility normalizing
+@each $utility, $utility-state in $utilities {
+  //typography
+  @if $utility == typography and $utility-state == true {
+    @include typography-normalizing();
+  }
+  //list
+  @if $utility == list and $utility-state == true {
+    @include list-normalizing();
+  }
+}
 
 
 //utility manager (responsive)
@@ -26,6 +39,11 @@
     //typography
     @if $utility == typography and $utility-state == true and $typographyResponsive == true {
       @include typography($breakpoint);
+    }
+
+    //list
+    @if $utility == list and $utility-state == true and $listResponsive == true {
+      @include list($breakpoint);
     }
 
     @if $utility == margin and $utility-state == true and $marginResponsive == true {
@@ -83,11 +101,6 @@
       @include zindex($breakpoint);
     }
 
-    //positions-tlrb
-    @if $utility == positions-tlrb and $utility-state == true and $positionsResponsive == true {
-      @include positions-tlrb($breakpoint);
-    }
-
     //border
     @if $utility == border and $utility-state == true and $bordersResponsive == true {
       @include border($breakpoint);
@@ -104,6 +117,11 @@
     //typography
     @if $utility == typography and $utility-state == true and $typographyResponsive == false {
       @include typography($breakpoint);
+    }
+
+    //list
+    @if $utility == list and $utility-state == true and $listResponsive == false {
+      @include list($breakpoint);
     }
 
     @if $utility == margin and $utility-state == true and $marginResponsive == false {
@@ -159,11 +177,6 @@
     //zindex
     @if $utility == zindex and $utility-state == true and $zindexResponsive == false {
       @include zindex($breakpoint);
-    }
-
-    //positions-tlrb
-    @if $utility == positions-tlrb and $utility-state == true and $positionsResponsive == false {
-      @include positions-tlrb($breakpoint);
     }
 
     //border

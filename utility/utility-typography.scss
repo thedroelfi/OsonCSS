@@ -14,163 +14,146 @@ $typography-tags : (h1, h2, h3, h4, h5, h6, p);
 @mixin typography-attributes($settings) {
   //font-family
   @if map.get($settings, font-family) {
-    $attributes: $settings;
-    font-family: map.get($attributes, font-family);
+    font-family: map.get($settings, font-family);
   }
 
   //font-weight
   @if map.get($settings, font-weight) {
-    $attributes: $settings;
-    font-weight: map.get($attributes, font-weight);
+    font-weight: map.get($settings, font-weight);
   }
 
   //font-style
   @if map.get($settings, font-style) {
-    $attributes: $settings;
-    font-style: map.get($attributes, font-style);
+    font-style: map.get($settings, font-style);
   }
 
   //line-height
   @if map.get($settings, line-height) {
-    $attributes: $settings;
-    line-height: map.get($attributes, line-height);
+    line-height: map.get($settings, line-height);
   }
 
   //letter-spacing
   @if map.get($settings, letter-spacing) {
-    $attributes: $settings;
-    letter-spacing: map.get($attributes, letter-spacing);
+    letter-spacing: map.get($settings, letter-spacing);
   }
 
   //text-transform
   @if map.get($settings, text-transform) {
-    $attributes: $settings;
-    text-transform: map.get($attributes, text-transform);
+    text-transform: map.get($settings, text-transform);
   }
 
   //text-decoration
   @if map.get($settings, text-decoration) {
-    $attributes: $settings;
-    text-decoration: map.get($attributes, text-decoration);
+    text-decoration: map.get($settings, text-decoration);
   }
 
   //color
   @if map.get($settings, color) {
-    $attributes: $settings;
-    color: map.get($attributes, color);
+    color: map.get($settings, color);
   }
 
   //word-break
   @if map.get($settings, word-break) {
-    $attributes: $settings;
-    word-break: map.get($attributes, word-break);
+    word-break: map.get($settings, word-break);
   }
 }
 
 
 
 //normalize
-* {
-  font-family: map.get($typography-norm-settings, font-family);
-}
-
-body {
-  @each $value-name, $value in $typography-norm-settings {
-
-    @if $value-name == font-size-desktop {
-      @include typography-font-size( map.get($typography-norm-settings, font-size-desktop), map.get($typography-norm-settings, font-size-mobile));
-    } @else if $value-name == font-size-mobile {} @else {
-      #{$value-name}: #{$value};
-    }
-
+@mixin typography-normalizing() {
+  * {
+    font-family: map.get($typography-norm-settings, font-family);
   }
-}
 
-//generate headline and text tags
-@each $tag, $settings in $typography-themes {
-  @if list.index($typography-tags, $tag) {
-    #{$tag} {
+  body {
+    @each $value-name, $value in $typography-norm-settings {
 
-      //font-family
-      @if map.get($settings, font-family) {
-        $attributes: $settings;
-        font-family: map.get($attributes, font-family);
-      } @else {
-        font-family: map.get($typography-norm-settings, font-family);
-      }
-
-      //font-weight
-      @if map.get($settings, font-weight) {
-        $attributes: $settings;
-        font-weight: map.get($attributes, font-weight);
-      } @else {
-        font-weight: map.get($typography-norm-settings, font-weight);
-      }
-
-      //font-style
-      @if map.get($settings, font-style) {
-        $attributes: $settings;
-        font-style: map.get($attributes, font-style);
-      } @else {
-        font-style: map.get($typography-norm-settings, font-style);
-      }
-
-      //line-height
-      @if map.get($settings, line-height) {
-        $attributes: $settings;
-        line-height: map.get($attributes, line-height);
-      } @else {
-        line-height: map.get($typography-norm-settings, line-height);
-      }
-
-      //letter-spacing
-      @if map.get($settings, letter-spacing) {
-        $attributes: $settings;
-        letter-spacing: map.get($attributes, letter-spacing);
-      } @else {
-        letter-spacing: map.get($typography-norm-settings, letter-spacing);
-      }
-
-      //text-transform
-      @if map.get($settings, text-transform) {
-        $attributes: $settings;
-        text-transform: map.get($attributes, text-transform);
-      } @else {
-        text-transform: map.get($typography-norm-settings, text-transform);
-      }
-
-      //text-decoration
-      @if map.get($settings, text-decoration) {
-        $attributes: $settings;
-        text-decoration: map.get($attributes, text-decoration);
-      } @else {
-        text-decoration: map.get($typography-norm-settings, text-decoration);
-      }
-
-      //color
-      @if map.get($settings, color) {
-        $attributes: $settings;
-        color: map.get($attributes, color);
-      } @else {
-        color: map.get($typography-norm-settings, color);
-      }
-
-      //word-break
-      @if map.get($settings, word-break) {
-        $attributes: $settings;
-        word-break: map.get($attributes, word-break);
-      } @else {
-        word-break: map.get($typography-norm-settings, word-break);
-      }
-
-      //font-size
-      @if map.get($settings, font-size-desktop) and map.get($settings, font-size-mobile) {
-        $attributes: $settings;
-        @include typography-font-size( map.get($attributes, font-size-desktop), map.get($attributes, font-size-mobile));
-      } @else {
+      @if $value-name == font-size-desktop {
         @include typography-font-size( map.get($typography-norm-settings, font-size-desktop), map.get($typography-norm-settings, font-size-mobile));
+      } @else if $value-name == font-size-mobile {} @else {
+        #{$value-name}: #{$value};
       }
 
+    }
+  }
+
+  //generate headline and text tags
+  @each $tag, $settings in $typography-themes {
+    @if list.index($typography-tags, $tag) {
+      #{$tag} {
+
+        //font-family
+        @if map.get($settings, font-family) {
+          font-family: map.get($settings, font-family);
+        } @else {
+          font-family: map.get($typography-norm-settings, font-family);
+        }
+
+        //font-weight
+        @if map.get($settings, font-weight) {
+          font-weight: map.get($settings, font-weight);
+        } @else {
+          font-weight: map.get($typography-norm-settings, font-weight);
+        }
+
+        //font-style
+        @if map.get($settings, font-style) {
+          font-style: map.get($settings, font-style);
+        } @else {
+          font-style: map.get($typography-norm-settings, font-style);
+        }
+
+        //line-height
+        @if map.get($settings, line-height) {
+          line-height: map.get($settings, line-height);
+        } @else {
+          line-height: map.get($typography-norm-settings, line-height);
+        }
+
+        //letter-spacing
+        @if map.get($settings, letter-spacing) {
+          letter-spacing: map.get($settings, letter-spacing);
+        } @else {
+          letter-spacing: map.get($typography-norm-settings, letter-spacing);
+        }
+
+        //text-transform
+        @if map.get($settings, text-transform) {
+          text-transform: map.get($settings, text-transform);
+        } @else {
+          text-transform: map.get($typography-norm-settings, text-transform);
+        }
+
+        //text-decoration
+        @if map.get($settings, text-decoration) {
+          text-decoration: map.get($settings, text-decoration);
+        } @else {
+          text-decoration: map.get($typography-norm-settings, text-decoration);
+        }
+
+        //color
+        @if map.get($settings, color) {
+          color: map.get($settings, color);
+        } @else {
+          color: map.get($typography-norm-settings, color);
+        }
+
+        //word-break
+        @if map.get($settings, word-break) {
+          word-break: map.get($settings, word-break);
+        } @else {
+          word-break: map.get($typography-norm-settings, word-break);
+        }
+
+        //font-size
+        @if map.get($settings, font-size-desktop) and map.get($settings, font-size-mobile) {
+          @include typography-font-size( map.get($settings, font-size-desktop), map.get($settings, font-size-mobile));
+        } @else {
+          @include typography-font-size( map.get($typography-norm-settings, font-size-desktop), map.get($typography-norm-settings, font-size-mobile));
+        }
+
+      }
     }
   }
 }
@@ -186,7 +169,6 @@ body {
   @each $tag, $settings in $typography-themes {
 
     $excludes: map.get($settings, exclude);
-    @debug $exclude-type;
     @if list.index($excludes, $exclude-type) == null {
 
       @if map.get($settings, font-size-desktop) and map.get($settings, font-size-mobile) {
@@ -195,8 +177,7 @@ body {
 
           //font-size
           @if map.get($settings, font-size-desktop) and map.get($settings, font-size-mobile) {
-            $attributes: $settings;
-            @include typography-font-size( map.get($attributes, font-size-desktop), map.get($attributes, font-size-mobile));
+            @include typography-font-size( map.get($settings, font-size-desktop), map.get($settings, font-size-mobile));
           }
 
           //additional styles
@@ -258,14 +239,12 @@ body {
 
       @if map.get($settings, font-size-desktop) and map.get($settings, font-size-mobile) {
         .#{$breakpoint}#{$shortcode}-#{$tag} {
-          $attributes: $settings;
-          @include typography-font-size( map.get($attributes, font-size-desktop), map.get($attributes, font-size-mobile));
+          @include typography-font-size( map.get($settings, font-size-desktop), map.get($settings, font-size-mobile));
         }
       }
       @if map.get($settings, font-size) {
         .#{$breakpoint}#{$shortcode}-#{$tag} {
-          $attributes: $settings;
-          font-size: map.get($attributes, font-size);
+          font-size: map.get($settings, font-size);
         }
       }
 

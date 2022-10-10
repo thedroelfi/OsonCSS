@@ -1,0 +1,53 @@
+//css variables
+:root {
+  //transition
+  @if map.get($custom-transition-norm, property) {
+    --oson-transition-property: #{map.get($custom-transition-norm, property)};
+  } @else {
+    --oson-transition-property: all;
+  }
+
+  @if map.get($custom-transition-norm, duration) {
+    --oson-transition-duration: #{map.get($custom-transition-norm, duration)};
+  } @else {
+    --oson-transition-duration: 300ms;
+  }
+
+  @if map.get($custom-transition-norm, delay) {
+    --oson-transition-delay: #{map.get($custom-transition-norm, delay)};
+  } @else {
+    --oson-transition-delay: 0ms;
+  }
+
+  @if map.get($custom-transition-norm, function) {
+    --oson-transition-function: #{map.get($custom-transition-norm, function)};
+  } @else {
+    --oson-transition-function: ease-in-out;
+  }
+
+
+  //list
+  @if map.get($list-norms, ul-style-type) {
+    --oson-list-ul-style-type: #{map.get($list-norms, ul-style-type)};
+  } @else {
+    --oson-list-ul-style-type: disc;
+  }
+
+  @if map.get($list-norms, ol-style-type) {
+    --oson-list-ol-style-type: #{map.get($list-norms, ol-style-type)};
+  } @else {
+    --oson-list-ol-style-type: decimal;
+  }
+
+  @if map.get($list-norms, list-spacing) {
+    --oson-list-spacing: #{map.get($list-norms, list-spacing)};
+  } @else {
+    --oson-list-spacing: 30px;
+  }
+
+  @if map.get($list-norms, li-spacing) {
+    --oson-li-spacing: #{map.get($list-norms, li-spacing)};
+  } @else {
+    --oson-li-spacing: 10px;
+  }
+}
