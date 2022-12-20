@@ -70,6 +70,7 @@ $typography-norm-settings : (
         color: #000,
 
         word-break: normal,
+        margin: 0,
 );
 
 $typography-themes: (
@@ -102,6 +103,9 @@ $typography-themes: (
                 font-size-mobile: 16,
         ),
         subline: (
+                font-size-desktop: 18,
+                font-size-mobile: 16,
+                word-break: break-word,
                 addons: (
                         padding: 50px,
                         margin: 30px

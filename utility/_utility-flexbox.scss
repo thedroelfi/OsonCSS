@@ -60,6 +60,18 @@
   }
 
 
+  //align-self
+  $align-self-shortcode: align-self;
+
+  $align-selfs: (auto: auto, start: flex-start, end: flex-end, center: center, stretch: stretch, baseline: baseline, unset: unset);
+
+  @each $name, $value in $align-selfs {
+    .#{$breakpoint}#{$align-self-shortcode}-#{$name} {
+      align-self: $value;
+    }
+  }
+
+
   //flex-shrink
   $flex-shrinks: (null: 1, -none: 0);
 

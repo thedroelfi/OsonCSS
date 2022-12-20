@@ -56,6 +56,11 @@ $typography-tags : (h1, h2, h3, h4, h5, h6, p);
   @if map.get($settings, word-break) {
     word-break: map.get($settings, word-break);
   }
+
+  //margin
+  @if map.get($settings, margin) {
+    margin: map.get($settings, margin);
+  }
 }
 
 
@@ -144,6 +149,13 @@ $typography-tags : (h1, h2, h3, h4, h5, h6, p);
           word-break: map.get($settings, word-break);
         } @else {
           word-break: map.get($typography-norm-settings, word-break);
+        }
+
+        //margin
+        @if map.get($settings, margin) {
+          margin: map.get($settings, margin);
+        } @else {
+          margin: map.get($typography-norm-settings, margin);
         }
 
         //font-size
@@ -361,7 +373,7 @@ $typography-tags : (h1, h2, h3, h4, h5, h6, p);
 //word-break
 @mixin word-break($breakpoint) {
   $shortcode-wb: wb;
-  $word-breaks: (none: normal, break: break-word, break-all:break-all);
+  $word-breaks: (none: normal, break: break-word, break-all:break-all, keep-all:keep-all);
   @each $name, $break in $word-breaks {
     .#{$breakpoint}#{$shortcode-wb}-#{$name} {
       word-break: #{$break};

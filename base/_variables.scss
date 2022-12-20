@@ -50,4 +50,23 @@
   } @else {
     --oson-li-spacing: 10px;
   }
+
+
+  //font sizes
+  $exclude-type: font-size;
+  @each $tag, $settings in $typography-themes {
+    $excludes: map.get($settings, exclude);
+    @if list.index($excludes, $exclude-type) == null {
+      @if map.get($settings, font-size-desktop) and map.get($settings, font-size-mobile) {
+        @if $typography-breakpoint {
+          --oson-fsi-#{$tag}: #{responsive-value(map.get($settings, font-size-mobile), map.get($settings, font-size-desktop), null)};
+        } @else {
+          --oson-fsi-#{$tag}: #{map.get($settings, font-size-desktop)}px;
+        }
+      }
+      @if map.get($settings, font-size) {
+        --oson-fsi-#{$tag}: #{map.get($settings, font-size-desktop)}px;
+      }
+    }
+  }
 }
