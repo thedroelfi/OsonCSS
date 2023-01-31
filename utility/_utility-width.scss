@@ -1,0 +1,77 @@
+// OsonCSS utility-width.scss
+
+@mixin utility-width($breakpoint) {
+  $shortcode_width: w;
+  $shortcode_max_width: maw;
+  $shortcode_min_width: miw;
+
+  //width
+  @each $width_name, $width_value in $widths {
+
+    //width
+    .#{$breakpoint}#{$shortcode_width}-#{$width_name} {
+      width: $width_value;
+    }
+
+    //width hover
+    @if ($ut_width_hover == true) {
+      .#{$breakpoint}#{$shortcode_width}\:hover-#{$width_name}:hover {
+        width: $width_value;
+      }
+    }
+
+    //width focus
+    @if ($ut_width_focus == true) {
+      .#{$breakpoint}#{$shortcode_width}\:focus-#{$width_name}:focus {
+        width: $width_value;
+      }
+    }
+  }
+
+  //max-width
+  @each $max_width_name, $max_width_value in $max_widths {
+
+    //max-width
+    .#{$breakpoint}#{$shortcode_max_width}-#{$max_width_name} {
+      max-width: $max_width_value;
+    }
+
+    //max-width hover
+    @if ($ut_max_width_hover == true) {
+      .#{$breakpoint}#{$shortcode_max_width}\:hover-#{$max_width_name}:hover {
+        max-width: $max_width_value;
+      }
+    }
+
+    //max-width focus
+    @if ($ut_max_width_focus == true) {
+      .#{$breakpoint}#{$shortcode_max_width}\:focus-#{$max_width_name}:focus {
+        max-width: $max_width_value;
+      }
+    }
+  }
+
+  //min-width
+  @each $min_width_name, $min_width_value in $min_widths {
+
+    //min-width
+    .#{$breakpoint}#{$shortcode_min_width}-#{$min_width_name} {
+      min-width: $min_width_value;
+    }
+
+    //min-width hover
+    @if ($ut_min_width_hover == true) {
+      .#{$breakpoint}#{$shortcode_min_width}\:hover-#{$min_width_name}:hover {
+        min-width: $min_width_value;
+      }
+    }
+
+    //min-width focus
+    @if ($ut_min_width_focus == true) {
+      .#{$breakpoint}#{$shortcode_min_width}\:focus-#{$min_width_name}:focus {
+        min-width: $min_width_value;
+      }
+    }
+
+  }
+}

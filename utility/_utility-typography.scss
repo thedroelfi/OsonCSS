@@ -1,0 +1,181 @@
+// OsonCSS utility-typography.scss
+
+//font-size
+@mixin sub-utility-font-size($breakpoint) {
+  $shortcode: fsi;
+  @each $name, $value in $custom-font-sizes {
+    .#{$breakpoint}#{$shortcode}-#{$name} {
+      @include typo-property(font-size, $value);
+    }
+  }
+}
+
+//font-family
+@mixin sub-utility-font-family($breakpoint) {
+  $shortcode: ff;
+  @each $name, $font in $custom-font-families {
+    .#{$breakpoint}#{$shortcode}-#{$name} {
+      font-family: #{$font};
+    }
+  }
+}
+
+//font-style
+@mixin sub-utility-font-style($breakpoint) {
+  $shortcode: fs;
+  $font-styles: (normal, italic, oblique, initial, inherit);
+  @each $style in $font-styles {
+    .#{$breakpoint}#{$shortcode}-#{$style} {
+      font-style: #{$style};
+    }
+  }
+}
+
+//font-weight
+@mixin sub-utility-font-weight($breakpoint) {
+  $shortcode: fw;
+  @each $name, $weight in $font-weights {
+    .#{$breakpoint}#{$shortcode}-#{$name} {
+      font-weight: #{$weight};
+    }
+  }
+}
+
+//line-height
+@mixin sub-utility-line-height($breakpoint) {
+  $shortcode: lh;
+  @each $name, $height in $line-heights {
+    .#{$breakpoint}#{$shortcode}-#{$name} {
+      line-height: #{$height};
+    }
+  }
+}
+
+//text align
+@mixin sub-utility-text-align($breakpoint) {
+  $shortcode: ta;
+  $text-aligns : (left, right, center, justify);
+  @each $align in $text-aligns {
+    .#{$breakpoint}#{$shortcode}-#{$align} {
+      text-align: #{$align};
+    }
+  }
+}
+
+//letter-spacing
+@mixin sub-utility-letter-spacing($breakpoint) {
+  $shortcode: ls;
+  @each $name, $spacing in $letter-spacings {
+    .#{$breakpoint}#{$shortcode}-#{$name} {
+      letter-spacing: #{$spacing};
+    }
+  }
+}
+
+//text-decoration
+@mixin sub-utility-text-decoration($breakpoint) {
+  $shortcode: td;
+  $text-decorations : (none, underline, line-through);
+  @each $decoration in $text-decorations {
+
+    //text-decoration
+    .#{$breakpoint}#{$shortcode}-#{$decoration} {
+      text-decoration: #{$decoration};
+    }
+
+    //text-decoration hover
+    @if $ut_text_decoration_hover == true {
+      .#{$breakpoint}#{$shortcode}\:hover-#{$decoration}:hover {
+        text-decoration: #{$decoration};
+      }
+    }
+
+    //text-decoration focus
+    @if $ut_text_decoration_focus == true {
+      .#{$breakpoint}#{$shortcode}\:focus-#{$decoration}:focus {
+        text-decoration: #{$decoration};
+      }
+    }
+  }
+}
+
+//text-transform
+@mixin sub-utility-text-transform($breakpoint) {
+  $shortcode: tt;
+  $text-transforms: (uppercase, lowercase, capitalize, none);
+  @each $transform in $text-transforms {
+    .#{$breakpoint}#{$shortcode}-#{$transform} {
+      text-transform: #{$transform};
+    }
+  }
+}
+
+//word-break
+@mixin sub-utility-word-break($breakpoint) {
+  $shortcode: wb;
+  $word-breaks: (none: normal, break: break-word, break-all:break-all, keep-all:keep-all);
+  @each $name, $break in $word-breaks {
+    .#{$breakpoint}#{$shortcode}-#{$name} {
+      word-break: #{$break};
+    }
+  }
+}
+
+//typo classes
+@mixin sub-utility-typography-classes($breakpoint) {
+  $shortcode: typo;
+
+  @each $name, $styles in $typo_classes {
+    .#{$breakpoint}#{$shortcode}-#{$name} {
+      @each $property, $property_value in $styles {
+
+        //styles
+        @if $property != hover and $property != focus {
+          @include typo-property($property, $property_value);
+        }
+
+      }
+
+      //styles hover
+      @if map.get($styles, hover) {
+        &:hover {
+          @each $property, $property_value in map.get($styles, hover) {
+
+            @if $property != hover and $property != focus {
+              @include typo-property($property, $property_value);
+            }
+
+          }
+        }
+      }
+
+      //styles focus
+      @if map.get($styles, focus) {
+        &:focus {
+          @each $property, $property_value in map.get($styles, focus) {
+
+            @if $property != hover and $property != focus {
+              @include typo-property($property, $property_value);
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
+
+//typography
+@mixin utility-typography($breakpoint) {
+  @include sub-utility-typography-classes($breakpoint);
+  @include sub-utility-font-size($breakpoint);
+  @include sub-utility-font-family($breakpoint);
+  @include sub-utility-font-style($breakpoint);
+  @include sub-utility-font-weight($breakpoint);
+  @include sub-utility-line-height($breakpoint);
+  @include sub-utility-text-align($breakpoint);
+  @include sub-utility-letter-spacing($breakpoint);
+  @include sub-utility-text-decoration($breakpoint);
+  @include sub-utility-text-transform($breakpoint);
+  @include sub-utility-word-break($breakpoint);
+}

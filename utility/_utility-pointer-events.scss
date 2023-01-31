@@ -1,0 +1,12 @@
+// OsonCSS utility-pointer-events.scss
+
+@mixin utility-pointer-events($breakpoint) {
+  $shortcode: pointer;
+  $values: (none, auto);
+
+  @each $value in $values {
+    .#{$breakpoint}#{$shortcode}-#{$value} {
+      pointer-events: #{$value};
+    }
+  }
+}

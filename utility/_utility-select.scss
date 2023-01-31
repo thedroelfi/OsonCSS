@@ -1,0 +1,12 @@
+// OsonCSS utility-select.scss
+
+@mixin utility-select($breakpoint) {
+  $shortcode: select;
+  $values: (none, text, all, auto);
+
+  @each $value in $values {
+    .#{$breakpoint}#{$shortcode}-#{$value} {
+      @include prefix('user-select', $value);
+    }
+  }
+}

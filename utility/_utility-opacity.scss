@@ -1,0 +1,28 @@
+// OsonCSS utility-opacity.scss
+
+@mixin utility-opacity($breakpoint) {
+  $shortcode: opacity;
+
+  @each $opacity_name, $opacity_value in $opacities {
+
+    //opacity
+    .#{$breakpoint}#{$shortcode}-#{$opacity_name} {
+      opacity: $opacity_value;
+    }
+
+    //opacity hover
+    @if ($ut_opacity_hover == true) {
+      .#{$breakpoint}#{$shortcode}\:hover-#{$opacity_name}:hover {
+        opacity: $opacity_value;
+      }
+    }
+
+    //opacity focus
+    @if ($ut_opacity_focus == true) {
+      .#{$breakpoint}#{$shortcode}\:focus-#{$opacity_name}:focus {
+        opacity: $opacity_value;
+      }
+    }
+
+  }
+}

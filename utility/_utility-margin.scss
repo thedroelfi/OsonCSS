@@ -1,0 +1,23 @@
+// OsonCSS utility-margin.scss
+
+@mixin utility-margin($breakpoint) {
+  $shortcode: m;
+  $directions: ('t' top, 'r' right, 'b' bottom, 'l' left, 'tb' top bottom, 'lr' left right);
+
+  @each $margin_name, $margin in $margins {
+
+    .#{$breakpoint}#{$shortcode}-#{$margin_name} {
+      margin: $margin;
+    }
+
+    @each $direction_name, $direction, $second_direction in $directions {
+
+      .#{$breakpoint}#{$shortcode}#{$direction_name}-#{$margin_name} {
+        margin-#{$direction}: $margin;
+        @if $second_direction != null {
+          margin-#{$second_direction}: $margin;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+// OsonCSS utility-display.scss
+
+@mixin utility-display($breakpoint) {
+  $values: (block, inline-block, flex, none);
+  @each $value in $values {
+    .#{$breakpoint}#{$value} {
+      display: #{$value};
+    }
+  }
+}

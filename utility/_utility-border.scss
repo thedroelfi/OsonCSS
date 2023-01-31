@@ -1,0 +1,77 @@
+// OsonCSS utility-border.scss
+
+@mixin utility-border($breakpoint) {
+  $shortcode: border;
+  $shortcode_border_radius: radius;
+  $border_positions: (null: null, -t: -top, -l: -left, -r: -right, -b: -bottom);
+  $border_styles: (none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset);
+  $border_radius_position : (null: null, -tl: -top-left, -tr: -top-right, -bl: -bottom-left, -br: -bottom-right);
+
+  //border
+  @each $name, $value in $border_widths {
+    @each $position_name, $position_value in $border_positions {
+      .#{$breakpoint}#{$shortcode}#{$position_name}-#{$name} {
+        border#{$position_value}: #{$value} #{$border-default-style} #{$border-default-color};
+      }
+    }
+  }
+
+  //border-style
+  @each $style in $border_styles {
+    @each $position_name, $position_value in $border_positions {
+      .#{$breakpoint}#{$shortcode}#{$position_name}-s-#{$style} {
+        border#{$position_value}-style: #{$style};
+      }
+    }
+  }
+
+  //border-color
+  @each $color-name, $color-hex in $colors {
+    @each $position_name, $position_value in $border_positions {
+
+      //border-color
+      .#{$breakpoint}#{$shortcode}#{$position_name}-c-#{$color-name} {
+        border#{$position_value}-color: #{$color-hex};
+      }
+
+      //border-color hover
+      @if ($ut_border_color_hover == true) {
+        .#{$breakpoint}#{$shortcode}#{$position_name}-c\:hover-#{$color-name}:hover {
+          border#{$position_value}-color: #{$color-hex};
+        }
+      }
+
+      //border-color focus
+      @if ($ut_border_color_focus == true) {
+        .#{$breakpoint}#{$shortcode}#{$position_name}-c\:focus-#{$color-name}:focus {
+          border#{$position_value}-color: #{$color-hex};
+        }
+      }
+    }
+  }
+
+  //border-radius
+  @each $name, $value in $border_radius {
+    @each $position_name, $position_value in $border_radius_position {
+
+      //border-radius
+      .#{$breakpoint}#{$shortcode_border_radius}#{$position_name}-#{$name} {
+        border#{$position_value}-radius: #{$value};
+      }
+
+      //border-radius hover
+      @if ($ut_border_radius_hover == true) {
+        .#{$breakpoint}#{$shortcode_border_radius}\:hover#{$position_name}-#{$name}:hover {
+          border#{$position_value}-radius: #{$value};
+        }
+      }
+
+      //border-radius focus
+      @if ($ut_border_radius_focus == true) {
+        .#{$breakpoint}#{$shortcode_border_radius}\:focus#{$position_name}-#{$name}:focus {
+          border#{$position_value}-radius: #{$value};
+        }
+      }
+    }
+  }
+}

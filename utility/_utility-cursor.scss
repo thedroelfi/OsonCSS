@@ -1,0 +1,11 @@
+// OsonCSS utility-cursor.scss
+
+@mixin utility-cursor($breakpoint) {
+  $shortcode: cursor;
+
+  @each $cursor-name, $cursor-type in $cursor {
+    .#{$breakpoint}#{$shortcode}-#{$cursor-name} {
+      cursor: #{$cursor-type};
+    }
+  }
+}

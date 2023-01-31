@@ -1,0 +1,27 @@
+// OsonCSS utility-zindex.scss
+
+@mixin utility-zindex($breakpoint) {
+  $shortcode: z;
+
+  @each $zindex_name, $zindex in $zindexes {
+
+    //zindex
+    .#{$breakpoint}#{$shortcode}-#{$zindex_name} {
+      z-index: $zindex;
+    }
+
+    //zindex hover
+    @if ($ut_zindex_hover == true) {
+      .#{$breakpoint}#{$shortcode}\:hover-#{$zindex_name}:hover {
+        z-index: $zindex;
+      }
+    }
+
+    //zindex focus
+    @if ($ut_zindex_focus == true) {
+      .#{$breakpoint}#{$shortcode}\:focus-#{$zindex_name}:focus {
+        z-index: $zindex;
+      }
+    }
+  }
+}

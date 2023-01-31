@@ -1,0 +1,24 @@
+// OsonCSS utility-overflow.scss
+
+@mixin utility-overflow($breakpoint) {
+  $shortcode: overflow;
+  $values: (hidden, auto, scroll, visible, clip);
+
+  @each $value in $values {
+
+    //overflow
+    .#{$breakpoint}#{$shortcode}-#{$value} {
+      overflow: #{$value};
+    }
+
+    //overflow-x
+    .#{$breakpoint}#{$shortcode}-x-#{$value} {
+      overflow-x: #{$value};
+    }
+
+    //overflow-y
+    .#{$breakpoint}#{$shortcode}-y-#{$value} {
+      overflow-y: #{$value};
+    }
+  }
+}

@@ -1,0 +1,99 @@
+// OsonCSS utility-position.scss
+
+@mixin utility-position($breakpoint) {
+  $shortcode_top: t;
+  $shortcode_left: l;
+  $shortcode_right: r;
+  $shortcode_bottom: b;
+  $values: (relative, absolute, fixed, static, sticky, unset);
+
+  //position
+  @each $value in $values {
+    .#{$breakpoint}#{$value} {
+      position: $value;
+    }
+  }
+
+  //positions
+  @each $position_name, $position_value in $positions {
+
+    //top
+    .#{$breakpoint}#{$shortcode_top}-#{$position_name} {
+      top: $position_value;
+    }
+
+    //top hover
+    @if ($ut_position_hover == true) {
+      .#{$breakpoint}#{$shortcode_top}\:hover-#{$position_name}:hover {
+        top: $position_value;
+      }
+    }
+
+    //top focus
+    @if ($ut_position_focus == true) {
+      .#{$breakpoint}#{$shortcode_top}\:focus-#{$position_name}:focus {
+        top: $position_value;
+      }
+    }
+
+
+    //left
+    .#{$breakpoint}#{$shortcode_left}-#{$position_name} {
+      left: $position_value;
+    }
+
+    //left hover
+    @if ($ut_position_hover == true) {
+      .#{$breakpoint}#{$shortcode_left}\:hover-#{$position_name}:hover {
+        left: $position_value;
+      }
+    }
+
+    //left focus
+    @if ($ut_position_focus == true) {
+      .#{$breakpoint}#{$shortcode_left}\:focus-#{$position_name}:focus {
+        left: $position_value;
+      }
+    }
+
+
+    //right
+    .#{$breakpoint}#{$shortcode_right}-#{$position_name} {
+      right: $position_value;
+    }
+
+    //right hover
+    @if ($ut_position_hover == true) {
+      .#{$breakpoint}#{$shortcode_right}\:hover-#{$position_name}:hover {
+        right: $position_value;
+      }
+    }
+
+    //right focus
+    @if ($ut_position_focus == true) {
+      .#{$breakpoint}#{$shortcode_right}\:focus-#{$position_name}:focus {
+        right: $position_value;
+      }
+    }
+
+
+    //bottom
+    .#{$breakpoint}#{$shortcode_bottom}-#{$position_name} {
+      bottom: $position_value;
+    }
+
+    //bottom hover
+    @if ($ut_position_hover == true) {
+      .#{$breakpoint}#{$shortcode_bottom}\:hover-#{$position_name}:hover {
+        bottom: $position_value;
+      }
+    }
+
+    //bottom focus
+    @if ($ut_position_focus == true) {
+      .#{$breakpoint}#{$shortcode_bottom}\:focus-#{$position_name}:focus {
+        bottom: $position_value;
+      }
+    }
+  }
+}

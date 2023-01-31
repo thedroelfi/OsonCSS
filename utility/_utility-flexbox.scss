@@ -1,0 +1,101 @@
+// OsonCSS utility-flexbox.scss
+
+@mixin utility-flexbox($breakpoint) {
+  $shortcode: flex;
+  $shortcode_order: order;
+  $shortcode_shrink: shrink;
+  $shortcode_grow: grow;
+
+  $flex_directions: (col: column, col-reverse: column-reverse, row: row, row-reverse: row-reverse, unset: unset);
+  $flex_wraps: (wrap: wrap, reverse: wrap-reverse, nowrap: nowrap, unset: unset);
+
+  $justify_contents: (start: flex-start, end: flex-end, center: center, between: space-between, around: space-around, evenly: space-evenly);
+  $justify_items: (start, end, center, stretch);
+  $justify_selfs: (auto, start, end, center, stretch);
+
+  $align_contents: (center: center, start: flex-start, end: flex-end, baseline: baseline, between: space-between, around: space-around, evenly: space-evenly);
+  $align_items: (start: flex-start, end: flex-end, center: center, baseline: baseline, stretch: stretch);
+  $align_selfs: (auto: auto, start: flex-start, end: flex-end, center: center, stretch: stretch, baseline: baseline);
+
+  $shrinks_growes: (null: 1, -none: 0);
+
+
+  //flex-direction
+  @each $name, $value in $flex_directions {
+    .#{$breakpoint}#{$shortcode}-#{$name} {
+      flex-direction: $value;
+    }
+  }
+
+  //flex-wrap
+  @each $name, $value in $flex_wraps {
+    .#{$breakpoint}#{$shortcode}-#{$name} {
+      flex-wrap: $value;
+    }
+  }
+
+  //justify-content
+  @each $name, $value in $justify_contents {
+    .#{$breakpoint}#{$shortcode}-jc-#{$name} {
+      justify-content: $value;
+    }
+  }
+
+  //justify-items
+  @each $value in $justify_items {
+    .#{$breakpoint}#{$shortcode}-ji-#{$value} {
+      justify-items: $value;
+    }
+  }
+
+  //justify-self
+  @each $value in $justify_selfs {
+    .#{$breakpoint}#{$shortcode}-js-#{$value} {
+      justify-self: $value;
+    }
+  }
+
+  //align-content
+  @each $name, $value in $align_contents {
+    .#{$breakpoint}#{$shortcode}-ac-#{$name} {
+      align-content: $value;
+    }
+  }
+
+  //align-items
+  @each $name, $value in $align_items {
+    .#{$breakpoint}#{$shortcode}-ai-#{$name} {
+      align-items: $value;
+    }
+  }
+
+  //align-self
+  @each $name, $value in $align_selfs {
+    .#{$breakpoint}#{$shortcode}-as-#{$name} {
+      align-self: $value;
+    }
+  }
+
+  //flex-shrink
+  @each $name, $value in $shrinks_growes {
+    .#{$breakpoint}#{$shortcode_shrink}#{$name} {
+      flex-shrink: $value;
+    }
+  }
+
+  //flex-grow
+  @each $name, $value in $shrinks_growes {
+    .#{$breakpoint}#{$shortcode_grow}#{$name} {
+      flex-grow: $value;
+    }
+  }
+
+  //order
+  @each $name, $value in $orders {
+    .#{$breakpoint}#{$shortcode_order}-#{$name} {
+      order: $value;
+    }
+  }
+}
+
+

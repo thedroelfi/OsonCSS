@@ -1,0 +1,217 @@
+// OsonCSS utilities.scss
+
+//utility register
+@mixin utility-register($breakpoint, $responsive) {
+  @each $utility, $utility-state in $utilities {
+
+
+    //color
+    @if $utility == color and $utility-state == true {
+      @if $ut_color_responsive == true and $responsive == true {
+        @include utility-color($breakpoint);
+      }
+      @if $ut_color_responsive == false and $responsive == false {
+        @include utility-color($breakpoint);
+      }
+    }
+
+
+    //cursor
+    @if $utility == cursor and $utility-state == true {
+      @if $ut_cursor_responsive == true and $responsive == true {
+        @include utility-cursor($breakpoint);
+      }
+      @if $ut_cursor_responsive == false and $responsive == false {
+        @include utility-cursor($breakpoint);
+      }
+    }
+
+
+    //display
+    @if $utility == display and $utility-state == true {
+      @if $ut_display_responsive == true and $responsive == true {
+        @include utility-display($breakpoint);
+      }
+      @if $ut_display_responsive == false and $responsive == false {
+        @include utility-display($breakpoint);
+      }
+    }
+
+
+    //height
+    @if $utility == height and $utility-state == true {
+      @if $ut_height_responsive == true and $responsive == true {
+        @include utility-height($breakpoint);
+      }
+      @if $ut_height_responsive == false and $responsive == false {
+        @include utility-height($breakpoint);
+      }
+    }
+
+
+    //width
+    @if $utility == width and $utility-state == true {
+      @if $ut_width_responsive == true and $responsive == true {
+        @include utility-width($breakpoint);
+      }
+      @if $ut_width_responsive == false and $responsive == false {
+        @include utility-width($breakpoint);
+      }
+    }
+
+
+    //opacity
+    @if $utility == opacity and $utility-state == true {
+      @if $ut_opacity_responsive == true and $responsive == true {
+        @include utility-opacity($breakpoint);
+      }
+      @if $ut_opacity_responsive == false and $responsive == false {
+        @include utility-opacity($breakpoint);
+      }
+    }
+
+
+    //select
+    @if $utility == select and $utility-state == true {
+      @if $ut_select_responsive == true and $responsive == true {
+        @include utility-select($breakpoint);
+      }
+      @if $ut_select_responsive == false and $responsive == false {
+        @include utility-select($breakpoint);
+      }
+    }
+
+
+    //zindex
+    @if $utility == zindex and $utility-state == true {
+      @if $ut_zindex_responsive == true and $responsive == true {
+        @include utility-zindex($breakpoint);
+      }
+      @if $ut_zindex_responsive == false and $responsive == false {
+        @include utility-zindex($breakpoint);
+      }
+    }
+
+
+    //overflow
+    @if $utility == overflow and $utility-state == true {
+      @if $ut_overflow_responsive == true and $responsive == true {
+        @include utility-overflow($breakpoint);
+      }
+      @if $ut_overflow_responsive == false and $responsive == false {
+        @include utility-overflow($breakpoint);
+      }
+    }
+
+
+    //margin
+    @if $utility == margin and $utility-state == true {
+      @if $ut_margin_responsive == true and $responsive == true {
+        @include utility-margin($breakpoint);
+      }
+      @if $ut_margin_responsive == false and $responsive == false {
+        @include utility-margin($breakpoint);
+      }
+    }
+
+
+    //padding
+    @if $utility == padding and $utility-state == true {
+      @if $ut_padding_responsive == true and $responsive == true {
+        @include utility-padding($breakpoint);
+      }
+      @if $ut_padding_responsive == false and $responsive == false {
+        @include utility-padding($breakpoint);
+      }
+    }
+
+
+    //position
+    @if $utility == position and $utility-state == true {
+      @if $ut_position_responsive == true and $responsive == true {
+        @include utility-position($breakpoint);
+      }
+      @if $ut_position_responsive == false and $responsive == false {
+        @include utility-position($breakpoint);
+      }
+    }
+
+
+    //border
+    @if $utility == border and $utility-state == true {
+      @if $ut_border_responsive == true and $responsive == true {
+        @include utility-border($breakpoint);
+      }
+      @if $ut_border_responsive == false and $responsive == false {
+        @include utility-border($breakpoint);
+      }
+    }
+
+    //flexbox
+    @if $utility == flexbox and $utility-state == true {
+      @if $ut_flexbox_responsive == true and $responsive == true {
+        @include utility-flexbox($breakpoint);
+      }
+      @if $ut_flexbox_responsive == false and $responsive == false {
+        @include utility-flexbox($breakpoint);
+      }
+    }
+
+    //typography
+    @if $utility == typography and $utility-state == true {
+      @if $ut_typography_responsive == true and $responsive == true {
+        @include utility-typography($breakpoint);
+      }
+      @if $ut_typography_responsive == false and $responsive == false {
+        @include utility-typography($breakpoint);
+      }
+    }
+
+    //transition
+    @if $utility == transition and $utility-state == true {
+      @if $ut_transition_responsive == true and $responsive == true {
+        @include utility-transition($breakpoint);
+      }
+      @if $ut_transition_responsive == false and $responsive == false {
+        @include utility-transition($breakpoint);
+      }
+    }
+
+    //pointer events
+    @if $utility == pointer-events and $utility-state == true {
+      @if $ut_pointer_events_responsive == true and $responsive == true {
+        @include utility-pointer-events($breakpoint);
+      }
+      @if $ut_pointer_events_responsive == false and $responsive == false {
+        @include utility-pointer-events($breakpoint);
+      }
+    }
+
+    //list
+    @if $utility == list and $utility-state == true {
+      @if $ut_list_responsive == true and $responsive == true {
+        @include utility-list($breakpoint);
+      }
+      @if $ut_list_responsive == false and $responsive == false {
+        @include utility-list($breakpoint);
+      }
+    }
+
+  }
+}
+
+
+//utility render
+@each $breakpoint-name, $breakpoint-width in $breakpoints {
+  @if $breakpoint-width != 0 {
+    @media (max-width: #{$breakpoint-width}px) {
+      $breakpoint: #{$breakpoint-name}\:;
+      @include utility_register($breakpoint, true);
+    }
+  } @else {
+    $breakpoint: null;
+    @include utility-register($breakpoint, true);
+  }
+}
+$breakpoint: null;
+@include utility-register($breakpoint, false);

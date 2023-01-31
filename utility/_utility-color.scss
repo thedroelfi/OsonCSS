@@ -1,0 +1,51 @@
+// OsonCSS utility_colors.scss
+
+@mixin utility-color($breakpoint) {
+  $shortcode-color: c;
+  $shortcode-background-color: bgc;
+  $shortcode-fill: fill;
+
+  @each $color-name, $color-hex in $colors {
+
+    //color
+    .#{$breakpoint}#{$shortcode-color}-#{$color-name} {
+      color: $color-hex;
+    }
+
+    //color hover
+    @if ($ut_color_hover == true) {
+      .#{$breakpoint}#{$shortcode-color}\:hover-#{$color-name}:hover {
+        color: $color-hex;
+      }
+    }
+
+    //color focus
+    @if ($ut_color_focus == true) {
+      .#{$breakpoint}#{$shortcode-color}\:focus-#{$color-name}:focus {
+        color: $color-hex;
+      }
+    }
+
+
+    //background-color
+    .#{$breakpoint}#{$shortcode-background-color}-#{$color-name} {
+      background-color: $color-hex;
+    }
+
+    //background-color hover
+    @if ($ut_color_hover == true) {
+      .#{$breakpoint}#{$shortcode-background-color}\:hover-#{$color-name}:hover {
+        background-color: $color-hex;
+      }
+    }
+
+    //background-color focus
+    @if ($ut_color_focus == true) {
+      .#{$breakpoint}#{$shortcode-background-color}\:focus-#{$color-name}:focus {
+        color: $color-hex;
+      }
+    }
+
+  }
+
+}

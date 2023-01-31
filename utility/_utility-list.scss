@@ -1,0 +1,50 @@
+// OsonCSS utility-list.scss
+
+@mixin utility-list($breakpoint) {
+  $shortcode_list: list;
+  $shortcode_no_list: no-list;
+  $shortcode_list_style: list-style;
+
+  //list
+  ul.#{$breakpoint}#{$shortcode_list} {
+    list-style-type: $list-unordered-style;
+  }
+
+  ol.#{$breakpoint}#{$shortcode_list} {
+    list-style-type: $list-ordered-style;
+  }
+
+  ul.#{$breakpoint}#{$shortcode_list}, ol.#{$breakpoint}#{$shortcode_list} {
+    padding: 0 0 $list-spacing $list-spacing;
+    margin: 0;
+
+    li {
+      padding: 0;
+      margin: 0 0 $list-item-spacing 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  //no list
+  ul.#{$breakpoint}#{$shortcode_no_list}, ol.#{$breakpoint}#{$shortcode_no_list} {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+    li {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  //list style
+  $values: (disc, circle, square, decimal, georgian, none);
+  @each $value in $values {
+    ul.#{$breakpoint}#{$shortcode_list_style}-#{$value}, ol.#{$breakpoint}#{$shortcode_list_style}-#{$value} {
+      list-style-type: $value;
+    }
+  }
+}

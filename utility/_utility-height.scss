@@ -1,0 +1,77 @@
+// OsonCSS utility-height.scss
+
+@mixin utility-height($breakpoint) {
+  $shortcode_height: h;
+  $shortcode_max_height: mah;
+  $shortcode_min_height: mih;
+
+  //height
+  @each $height_name, $height_value in $heights {
+
+    //height
+    .#{$breakpoint}#{$shortcode_height}-#{$height_name} {
+      height: $height_value;
+    }
+
+    //height hover
+    @if ($ut_height_hover == true) {
+      .#{$breakpoint}#{$shortcode_height}\:hover-#{$height_name}:hover {
+        height: $height_value;
+      }
+    }
+
+    //height focus
+    @if ($ut_height_focus == true) {
+      .#{$breakpoint}#{$shortcode_height}\:focus-#{$height_name}:focus {
+        height: $height_value;
+      }
+    }
+  }
+
+  //max-height
+  @each $max_height_name, $max_height_value in $max_heights {
+
+    //max-height
+    .#{$breakpoint}#{$shortcode_max_height}-#{$max_height_name} {
+      max-height: $max_height_value;
+    }
+
+    //max-height hover
+    @if ($ut_max_height_hover == true) {
+      .#{$breakpoint}#{$shortcode_max_height}\:hover-#{$max_height_name}:hover {
+        max-height: $max_height_value;
+      }
+    }
+
+    //max-height focus
+    @if ($ut_max_height_focus == true) {
+      .#{$breakpoint}#{$shortcode_max_height}\:focus-#{$max_height_name}:focus {
+        max-height: $max_height_value;
+      }
+    }
+  }
+
+  //min-height
+  @each $min_height_name, $min_height_value in $min_heights {
+
+    //min-height
+    .#{$breakpoint}#{$shortcode_min_height}-#{$min_height_name} {
+      min-height: $min_height_value;
+    }
+
+    //min-height hover
+    @if ($ut_min_height_hover == true) {
+      .#{$breakpoint}#{$shortcode_min_height}\:hover-#{$min_height_name}:hover {
+        min-height: $min_height_value;
+      }
+    }
+
+    //min-height focus
+    @if ($ut_min_height_focus == true) {
+      .#{$breakpoint}#{$shortcode_min_height}\:focus-#{$min_height_name}:focus {
+        min-height: $min_height_value;
+      }
+    }
+
+  }
+}

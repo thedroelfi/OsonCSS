@@ -1,0 +1,411 @@
+// OsonCSS normalize.scss
+
+*, *::before, *::after {
+  font-family: $font-default;
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+:focus {
+  outline: none !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+//typo
+h1, h2, h3, h4, h5, h6, p {
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  margin: 0;
+}
+
+@each $tag, $styles in $typo_tags_default {
+  $custom_styles: map.get($typo_tags_custom, $tag);
+  #{$tag} {
+
+    //properties
+    @each $property, $style in $styles {
+      @if $property != hover and $property != focus {
+        @if map.get($custom_styles, $property) {
+          @include typo-property($property, map.get($custom_styles, $property));
+        } @else {
+          @include typo-property($property, $style);
+        }
+      }
+    }
+
+    //properties hover
+    @if map.get($styles, hover) {
+      &:hover {
+        @each $hover_property, $hover_value in map.get($styles, hover) {
+          $custom_hover_styles: map.get($custom_styles, hover);
+          @if $custom_hover_styles and map.get($custom_hover_styles, $hover_property) {
+            @include typo-property($hover_property, map.get($custom_hover_styles, $hover_property));
+          } @else {
+            @include typo-property($hover_property, $hover_value);
+          }
+        }
+      }
+    }
+
+    //properties focus
+    @if map.get($styles, focus) {
+      &:focus {
+        @each $focus_property, $focus_value in map.get($styles, focus) {
+          $custom_focus_styles: map.get($custom_styles, focus);
+          @if $custom_focus_styles and map.get($custom_focus_styles, $focus_property) {
+            @include typo-property($focus_property, map.get($custom_focus_styles, $focus_property));
+          } @else {
+            @include typo-property($focus_property, $focus_value);
+          }
+        }
+      }
+    }
+  }
+}
+
+a {
+  @include transition((color, text-decoration-color), null, null, null);
+}
+
+//lists
+ul {
+  list-style-type: $list-unordered-style;
+}
+
+ol {
+  list-style-type: $list-ordered-style;
+}
+
+ul, ol {
+  padding: 0 0 $list-spacing $list-spacing;
+  margin: 0;
+
+  li {
+    padding: 0;
+    margin: 0 0 $list-item-spacing 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+hr {
+  margin: 0;
+  color: inherit;
+  border: 0;
+  opacity: 1;
+}
+
+hr:not([size]) {
+  height: 1px;
+}
+
+abbr[title],
+abbr[data-bs-original-title] {
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+  cursor: help;
+  -webkit-text-decoration-skip-ink: none;
+  text-decoration-skip-ink: none;
+}
+
+address {
+  margin: 0;
+  font-style: normal;
+  line-height: inherit;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+blockquote {
+  margin: 0;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+small {
+  font-size: 0.875em;
+}
+
+mark {
+  padding: 0.2em;
+  background-color: $primary_color;
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: 0.75em;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+a:not([href]):not([class]), a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: $font-default;
+  font-size: 1em;
+  direction: ltr /* rtl:ignore */;
+  unicode-bidi: bidi-override;
+}
+
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+  font-size: 0.875em;
+}
+pre code {
+  font-size: inherit;
+  color: inherit;
+  word-break: normal;
+}
+
+code {
+  font-size: 0.875em;
+  color: $primary_color;
+  word-wrap: break-word;
+}
+a > code {
+  color: inherit;
+}
+
+kbd {
+  padding: 0.2rem 0.4rem;
+  font-size: 0.875em;
+  color: #fff;
+  background-color: #212529;
+  border-radius: 0.2rem;
+}
+kbd kbd {
+  padding: 0;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+figure {
+  margin: 0;
+}
+
+img,
+svg {
+  width: 100%;
+  user-select: none;
+  vertical-align: middle;
+}
+
+table {
+  caption-side: bottom;
+  border-collapse: collapse;
+}
+
+caption {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: #6c757d;
+  text-align: left;
+}
+
+th {
+  text-align: inherit;
+  text-align: -webkit-match-parent;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+
+label {
+  display: inline-block;
+}
+
+button {
+  border-radius: 0;
+}
+
+button:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+[role=button] {
+  cursor: pointer;
+}
+
+select {
+  word-wrap: normal;
+}
+select:disabled {
+  opacity: 1;
+}
+
+[list]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+button:not(:disabled),
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled) {
+  cursor: pointer;
+}
+
+::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-size: calc(1.275rem + 0.3vw);
+  line-height: inherit;
+}
+@media (min-width: 1200px) {
+  legend {
+    font-size: 1.5rem;
+  }
+}
+legend + * {
+  clear: left;
+}
+
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-year-field {
+  padding: 0;
+}
+
+::-webkit-inner-spin-button {
+  height: auto;
+}
+
+[type=search] {
+  outline-offset: -2px;
+  -webkit-appearance: textfield;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+::file-selector-button {
+  font: inherit;
+}
+
+::-webkit-file-upload-button {
+  font: inherit;
+  -webkit-appearance: button;
+}
+
+output {
+  display: inline-block;
+}
+
+iframe {
+  border: 0;
+}
+
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+[hidden] {
+  display: none !important;
+}

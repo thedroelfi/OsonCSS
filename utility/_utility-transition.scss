@@ -1,0 +1,46 @@
+// OsonCSS utility-transition.scss
+
+@mixin utility-transition($breakpoint) {
+  $shortcode-transition: transition;
+  $shortcode-duration: duration;
+  $shortcode-timings: timing;
+  $shortcode-delays: delay;
+
+  //transitions
+  @each $name, $property in $transition-properties {
+    @if $name == default {
+      .#{$breakpoint}#{$shortcode-transition} {
+        transition-property: $property;
+        transition-timing-function: $transition-timing-default;
+        transition-duration: $transition-duration-default;
+      }
+    } @else {
+      .#{$breakpoint}#{$shortcode-transition}-#{$name} {
+        transition-property: $property;
+        transition-timing-function: $transition-timing-default;
+        transition-duration: $transition-duration-default;
+      }
+    }
+  }
+
+  //durations
+  @each $name, $value in $transition-durations {
+    .#{$breakpoint}#{$shortcode-duration}-#{$name} {
+      transition-duration: $value;
+    }
+  }
+
+  //transition-timing-function
+  @each $name, $value in $transition-timings {
+    .#{$breakpoint}#{$shortcode-timings}-#{$name} {
+      transition-timing-function: $value;
+    }
+  }
+
+  //transition-delay
+  @each $name, $value in $transition-delays {
+    .#{$breakpoint}#{$shortcode-delays}-#{$name} {
+      transition-timing-function: $value;
+    }
+  }
+}

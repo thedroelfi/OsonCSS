@@ -1,0 +1,86 @@
+// OsonCSS functions.scss
+
+//browser prefixes
+@mixin prefix($property-name, $property-value) {
+  @each $prefix in $browser_prefixes {
+    #{$prefix}#{$property-name}: #{$property-value};
+  }
+}
+
+
+//fluid value
+@function fluid-value($min, $max, $bp) {
+  @if $bp == null and $fluid-breakpoint {
+    @return clamp(#{$min}px, #{100vw * (math.div($max, $fluid-breakpoint))}, #{$max}px);
+  } @else {
+    @return clamp(#{$min}px, #{100vw * (math.div($max, $bp))}, #{$max}px);
+  }
+}
+
+
+//breakpoints
+@mixin breakpoint($bp) {
+  @if map.get($breakpoints, $bp) and map.get($breakpoints, $bp) != 0 {
+    @media (max-width: #{map.get($breakpoints, $bp)}px) {
+      @content
+    }
+  }
+}
+
+
+//typo properties
+@mixin typo-property($prop, $val) {
+  @if $prop == font-size {
+    @if length($val) == 2 {
+      #{$prop}: fluid-value(nth($val, 2), nth($val, 1), null);
+    } @else {
+      #{$prop}: #{$val};
+    }
+  } @else {
+    #{$prop}: #{$val};
+  }
+}
+
+
+//color
+@function c($name) {
+  @return #{map.get($colors, $name)};
+}
+
+
+//fsi
+@function fsi($name) {
+  $fsi: map.get($custom-font-sizes, $name);
+  @if length($fsi) == 2 {
+    @return fluid-value(nth($fsi, 2), nth($fsi, 1), null);
+  } @else {
+    @return #{$fsi};
+  }
+}
+
+
+//transition
+@mixin transition($property, $duration, $delay, $timing) {
+  //transition-property
+  @if $property == null {
+    transition-property: $transition-property-default;
+  } @else {
+    transition-property: $property;
+  }
+  //transition-duration
+  @if $duration == null {
+    transition-duration: $transition-duration-default;
+  } @else {
+    transition-duration: $duration;
+  }
+  //transition-timing-function
+  @if $timing == null {
+    transition-timing-function: $transition-timing-default;
+  } @else {
+    transition-timing-function: $timing;
+  }
+  //delay
+  @if $delay != null {
+    transition-delay: $delay;
+  }
+}

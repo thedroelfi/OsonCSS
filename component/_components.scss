@@ -1,0 +1,6 @@
+// OsonCSS components.scss
+
+//grid
+@if map.get($components, grid) == true {
+  @include component-grid($breakpoints);
+}

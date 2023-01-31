@@ -1,0 +1,520 @@
+// OsonCSS values.scss
+
+//value maps
+$value_map_px_positive:(1:1px,2:2px,3:3px,4:4px,5:5px,6:6px,7:7px,8:8px,9:9px,10:10px,11:11px,12:12px,13:13px,14:14px,15:15px,16:16px,17:17px,18:18px,19:19px,20:20px,21:21px,22:22px,23:23px,24:24px,25:25px,26:26px,27:27px,28:28px,29:29px,30:30px,31:31px,32:32px,33:33px,34:34px,35:35px,36:36px,37:37px,38:38px,39:39px,40:40px,41:41px,42:42px,43:43px,44:44px,45:45px,46:46px,47:47px,48:48px,49:49px,50:50px,51:51px,52:52px,53:53px,54:54px,55:55px,56:56px,57:57px,58:58px,59:59px,60:60px,61:61px,62:62px,63:63px,64:64px,65:65px,66:66px,67:67px,68:68px,69:69px,70:70px,71:71px,72:72px,73:73px,74:74px,75:75px,76:76px,77:77px,78:78px,79:79px,80:80px,81:81px,82:82px,83:83px,84:84px,85:85px,86:86px,87:87px,88:88px,89:89px,90:90px,91:91px,92:92px,93:93px,94:94px,95:95px,96:96px,97:97px,98:98px,99:99px,100:100px,110:110px,120:120px,130:130px,140:140px,150:150px,160:160px,170:170px,180:180px,190:190px,200:200px,210:210px,220:220px,230:230px,240:240px,250:250px,260:260px,270:270px,280:280px,290:290px,300:300px,310:310px,320:320px,330:330px,340:340px,350:350px,360:360px,370:370px,380:380px,390:390px,400:400px,410:410px,420:420px,430:430px,440:440px,450:450px,460:460px,470:470px,480:480px,490:490px,500:500px,510:510px,520:520px,530:530px,540:540px,550:550px,560:560px,570:570px,580:580px,590:590px,600:600px,610:610px,620:620px,630:630px,640:640px,650:650px,660:660px,670:670px,680:680px,690:690px,700:700px,710:710px,720:720px,730:730px,740:740px,750:750px,760:760px,770:770px,780:780px,790:790px,800:800px,810:810px,820:820px,830:830px,840:840px,850:850px,860:860px,870:870px,880:880px,890:890px,900:900px,910:910px,920:920px,930:930px,940:940px,950:950px,960:960px,970:970px,980:980px,990:990px,1000:1000px,1010:1010px,1020:1020px,1030:1030px,1040:1040px,1050:1050px,1060:1060px,1070:1070px,1080:1080px,1090:1090px,1100:1100px,);
+$value_map_px_negative:(-1:-1px,-2:-2px,-3:-3px,-4:-4px,-5:-5px,-6:-6px,-7:-7px,-8:-8px,-9:-9px,-10:-10px,-11:-11px,-12:-12px,-13:-13px,-14:-14px,-15:-15px,-16:-16px,-17:-17px,-18:-18px,-19:-19px,-20:-20px,-21:-21px,-22:-22px,-23:-23px,-24:-24px,-25:-25px,-26:-26px,-27:-27px,-28:-28px,-29:-29px,-30:-30px,-31:-31px,-32:-32px,-33:-33px,-34:-34px,-35:-35px,-36:-36px,-37:-37px,-38:-38px,-39:-39px,-40:-40px,-41:-41px,-42:-42px,-43:-43px,-44:-44px,-45:-45px,-46:-46px,-47:-47px,-48:-48px,-49:-49px,-50:-50px,-51:-51px,-52:-52px,-53:-53px,-54:-54px,-55:-55px,-56:-56px,-57:-57px,-58:-58px,-59:-59px,-60:-60px,-61:-61px,-62:-62px,-63:-63px,-64:-64px,-65:-65px,-66:-66px,-67:-67px,-68:-68px,-69:-69px,-70:-70px,-71:-71px,-72:-72px,-73:-73px,-74:-74px,-75:-75px,-76:-76px,-77:-77px,-78:-78px,-79:-79px,-80:-80px,-81:-81px,-82:-82px,-83:-83px,-84:-84px,-85:-85px,-86:-86px,-87:-87px,-88:-88px,-89:-89px,-90:-90px,-91:-91px,-92:-92px,-93:-93px,-94:-94px,-95:-95px,-96:-96px,-97:-97px,-98:-98px,-99:-99px,-100:-100px,-110:-110px,-120:-120px,-130:-130px,-140:-140px,-150:-150px,-160:-160px,-170:-170px,-180:-180px,-190:-190px,-200:-200px,-210:-210px,-220:-220px,-230:-230px,-240:-240px,-250:-250px,-260:-260px,-270:-270px,-280:-280px,-290:-290px,-300:-300px,-310:-310px,-320:-320px,-330:-330px,-340:-340px,-350:-350px,-360:-360px,-370:-370px,-380:-380px,-390:-390px,-400:-400px,-410:-410px,-420:-420px,-430:-430px,-440:-440px,-450:-450px,-460:-460px,-470:-470px,-480:-480px,-490:-490px,-500:-500px,-510:-510px,-520:-520px,-530:-530px,-540:-540px,-550:-550px,-560:-560px,-570:-570px,-580:-580px,-590:-590px,-600:-600px,-610:-610px,-620:-620px,-630:-630px,-640:-640px,-650:-650px,-660:-660px,-670:-670px,-680:-680px,-690:-690px,-700:-700px,-710:-710px,-720:-720px,-730:-730px,-740:-740px,-750:-750px,-760:-760px,-770:-770px,-780:-780px,-790:-790px,-800:-800px,-810:-810px,-820:-820px,-830:-830px,-840:-840px,-850:-850px,-860:-860px,-870:-870px,-880:-880px,-890:-890px,-900:-900px,-910:-910px,-920:-920px,-930:-930px,-940:-940px,-950:-950px,-960:-960px,-970:-970px,-980:-980px,-990:-990px,-1000:-1000px,-1010:-1010px,-1020:-1020px,-1030:-1030px,-1040:-1040px,-1050:-1050px,-1060:-1060px,-1070:-1070px,-1080:-1080px,-1090:-1090px,-1100:-1100px,);
+$value_map_px: map.merge($value_map_px_positive, $value_map_px_negative);
+
+$value_map_percentage_positive:(1p:1%,2p:2%,3p:3%,4p:4%,5p:5%,6p:6%,7p:7%,8p:8%,9p:9%,10p:10%,11p:11%,12p:12%,13p:13%,14p:14%,15p:15%,16p:16%,17p:17%,18p:18%,19p:19%,20p:20%,21p:21%,22p:22%,23p:23%,24p:24%,25p:25%,26p:26%,27p:27%,28p:28%,29p:29%,30p:30%,31p:31%,32p:32%,33p:33%,34p:34%,35p:35%,36p:36%,37p:37%,38p:38%,39p:39%,40p:40%,41p:41%,42p:42%,43p:43%,44p:44%,45p:45%,46p:46%,47p:47%,48p:48%,49p:49%,50p:50%,51p:51%,52p:52%,53p:53%,54p:54%,55p:55%,56p:56%,57p:57%,58p:58%,59p:59%,60p:60%,61p:61%,62p:62%,63p:63%,64p:64%,65p:65%,66p:66%,67p:67%,68p:68%,69p:69%,70p:70%,71p:71%,72p:72%,73p:73%,74p:74%,75p:75%,76p:76%,77p:77%,78p:78%,79p:79%,80p:80%,81p:81%,82p:82%,83p:83%,84p:84%,85p:85%,86p:86%,87p:87%,88p:88%,89p:89%,90p:90%,91p:91%,92p:92%,93p:93%,94p:94%,95p:95%,96p:96%,97p:97%,98p:98%,99p:99%,100p:100%,101p:101%,102p:102%,103p:103%,104p:104%,105p:105%,106p:106%,107p:107%,108p:108%,109p:109%,110p:110%,111p:111%,112p:112%,113p:113%,114p:114%,115p:115%,116p:116%,117p:117%,118p:118%,119p:119%,120p:120%,121p:121%,122p:122%,123p:123%,124p:124%,125p:125%,126p:126%,127p:127%,128p:128%,129p:129%,130p:130%,131p:131%,132p:132%,133p:133%,134p:134%,135p:135%,136p:136%,137p:137%,138p:138%,139p:139%,140p:140%,141p:141%,142p:142%,143p:143%,144p:144%,145p:145%,146p:146%,147p:147%,148p:148%,149p:149%,150p:150%,151p:151%,152p:152%,153p:153%,154p:154%,155p:155%,156p:156%,157p:157%,158p:158%,159p:159%,160p:160%,161p:161%,162p:162%,163p:163%,164p:164%,165p:165%,166p:166%,167p:167%,168p:168%,169p:169%,170p:170%,171p:171%,172p:172%,173p:173%,174p:174%,175p:175%,176p:176%,177p:177%,178p:178%,179p:179%,180p:180%,181p:181%,182p:182%,183p:183%,184p:184%,185p:185%,186p:186%,187p:187%,188p:188%,189p:189%,190p:190%,191p:191%,192p:192%,193p:193%,194p:194%,195p:195%,196p:196%,197p:197%,198p:198%,199p:199%,200p:200%,);
+$value_map_percentage_negative:(-1p:-1%,-2p:-2%,-3p:-3%,-4p:-4%,-5p:-5%,-6p:-6%,-7p:-7%,-8p:-8%,-9p:-9%,-10p:-10%,-11p:-11%,-12p:-12%,-13p:-13%,-14p:-14%,-15p:-15%,-16p:-16%,-17p:-17%,-18p:-18%,-19p:-19%,-20p:-20%,-21p:-21%,-22p:-22%,-23p:-23%,-24p:-24%,-25p:-25%,-26p:-26%,-27p:-27%,-28p:-28%,-29p:-29%,-30p:-30%,-31p:-31%,-32p:-32%,-33p:-33%,-34p:-34%,-35p:-35%,-36p:-36%,-37p:-37%,-38p:-38%,-39p:-39%,-40p:-40%,-41p:-41%,-42p:-42%,-43p:-43%,-44p:-44%,-45p:-45%,-46p:-46%,-47p:-47%,-48p:-48%,-49p:-49%,-50p:-50%,-51p:-51%,-52p:-52%,-53p:-53%,-54p:-54%,-55p:-55%,-56p:-56%,-57p:-57%,-58p:-58%,-59p:-59%,-60p:-60%,-61p:-61%,-62p:-62%,-63p:-63%,-64p:-64%,-65p:-65%,-66p:-66%,-67p:-67%,-68p:-68%,-69p:-69%,-70p:-70%,-71p:-71%,-72p:-72%,-73p:-73%,-74p:-74%,-75p:-75%,-76p:-76%,-77p:-77%,-78p:-78%,-79p:-79%,-80p:-80%,-81p:-81%,-82p:-82%,-83p:-83%,-84p:-84%,-85p:-85%,-86p:-86%,-87p:-87%,-88p:-88%,-89p:-89%,-90p:-90%,-91p:-91%,-92p:-92%,-93p:-93%,-94p:-94%,-95p:-95%,-96p:-96%,-97p:-97%,-98p:-98%,-99p:-99%,-100p:-100%,-101p:-101%,-102p:-102%,-103p:-103%,-104p:-104%,-105p:-105%,-106p:-106%,-107p:-107%,-108p:-108%,-109p:-109%,-110p:-110%,-111p:-111%,-112p:-112%,-113p:-113%,-114p:-114%,-115p:-115%,-116p:-116%,-117p:-117%,-118p:-118%,-119p:-119%,-120p:-120%,-121p:-121%,-122p:-122%,-123p:-123%,-124p:-124%,-125p:-125%,-126p:-126%,-127p:-127%,-128p:-128%,-129p:-129%,-130p:-130%,-131p:-131%,-132p:-132%,-133p:-133%,-134p:-134%,-135p:-135%,-136p:-136%,-137p:-137%,-138p:-138%,-139p:-139%,-140p:-140%,-141p:-141%,-142p:-142%,-143p:-143%,-144p:-144%,-145p:-145%,-146p:-146%,-147p:-147%,-148p:-148%,-149p:-149%,-150p:-150%,-151p:-151%,-152p:-152%,-153p:-153%,-154p:-154%,-155p:-155%,-156p:-156%,-157p:-157%,-158p:-158%,-159p:-159%,-160p:-160%,-161p:-161%,-162p:-162%,-163p:-163%,-164p:-164%,-165p:-165%,-166p:-166%,-167p:-167%,-168p:-168%,-169p:-169%,-170p:-170%,-171p:-171%,-172p:-172%,-173p:-173%,-174p:-174%,-175p:-175%,-176p:-176%,-177p:-177%,-178p:-178%,-179p:-179%,-180p:-180%,-181p:-181%,-182p:-182%,-183p:-183%,-184p:-184%,-185p:-185%,-186p:-186%,-187p:-187%,-188p:-188%,-189p:-189%,-190p:-190%,-191p:-191%,-192p:-192%,-193p:-193%,-194p:-194%,-195p:-195%,-196p:-196%,-197p:-197%,-198p:-198%,-199p:-199%,-200p:-200%,);
+$value_map_percentage: map.merge($value_map_percentage_positive, $value_map_percentage_negative);
+
+$value_map_viewport_width_positive:(1vw:1vw,2vw:2vw,3vw:3vw,4vw:4vw,5vw:5vw,6vw:6vw,7vw:7vw,8vw:8vw,9vw:9vw,10vw:10vw,11vw:11vw,12vw:12vw,13vw:13vw,14vw:14vw,15vw:15vw,16vw:16vw,17vw:17vw,18vw:18vw,19vw:19vw,20vw:20vw,21vw:21vw,22vw:22vw,23vw:23vw,24vw:24vw,25vw:25vw,26vw:26vw,27vw:27vw,28vw:28vw,29vw:29vw,30vw:30vw,31vw:31vw,32vw:32vw,33vw:33vw,34vw:34vw,35vw:35vw,36vw:36vw,37vw:37vw,38vw:38vw,39vw:39vw,40vw:40vw,41vw:41vw,42vw:42vw,43vw:43vw,44vw:44vw,45vw:45vw,46vw:46vw,47vw:47vw,48vw:48vw,49vw:49vw,50vw:50vw,51vw:51vw,52vw:52vw,53vw:53vw,54vw:54vw,55vw:55vw,56vw:56vw,57vw:57vw,58vw:58vw,59vw:59vw,60vw:60vw,61vw:61vw,62vw:62vw,63vw:63vw,64vw:64vw,65vw:65vw,66vw:66vw,67vw:67vw,68vw:68vw,69vw:69vw,70vw:70vw,71vw:71vw,72vw:72vw,73vw:73vw,74vw:74vw,75vw:75vw,76vw:76vw,77vw:77vw,78vw:78vw,79vw:79vw,80vw:80vw,81vw:81vw,82vw:82vw,83vw:83vw,84vw:84vw,85vw:85vw,86vw:86vw,87vw:87vw,88vw:88vw,89vw:89vw,90vw:90vw,91vw:91vw,92vw:92vw,93vw:93vw,94vw:94vw,95vw:95vw,96vw:96vw,97vw:97vw,98vw:98vw,99vw:99vw,100vw:100vw,101vw:101vw,102vw:102vw,103vw:103vw,104vw:104vw,105vw:105vw,106vw:106vw,107vw:107vw,108vw:108vw,109vw:109vw,110vw:110vw,111vw:111vw,112vw:112vw,113vw:113vw,114vw:114vw,115vw:115vw,116vw:116vw,117vw:117vw,118vw:118vw,119vw:119vw,120vw:120vw,121vw:121vw,122vw:122vw,123vw:123vw,124vw:124vw,125vw:125vw,126vw:126vw,127vw:127vw,128vw:128vw,129vw:129vw,130vw:130vw,131vw:131vw,132vw:132vw,133vw:133vw,134vw:134vw,135vw:135vw,136vw:136vw,137vw:137vw,138vw:138vw,139vw:139vw,140vw:140vw,141vw:141vw,142vw:142vw,143vw:143vw,144vw:144vw,145vw:145vw,146vw:146vw,147vw:147vw,148vw:148vw,149vw:149vw,150vw:150vw,151vw:151vw,152vw:152vw,153vw:153vw,154vw:154vw,155vw:155vw,156vw:156vw,157vw:157vw,158vw:158vw,159vw:159vw,160vw:160vw,161vw:161vw,162vw:162vw,163vw:163vw,164vw:164vw,165vw:165vw,166vw:166vw,167vw:167vw,168vw:168vw,169vw:169vw,170vw:170vw,171vw:171vw,172vw:172vw,173vw:173vw,174vw:174vw,175vw:175vw,176vw:176vw,177vw:177vw,178vw:178vw,179vw:179vw,180vw:180vw,181vw:181vw,182vw:182vw,183vw:183vw,184vw:184vw,185vw:185vw,186vw:186vw,187vw:187vw,188vw:188vw,189vw:189vw,190vw:190vw,191vw:191vw,192vw:192vw,193vw:193vw,194vw:194vw,195vw:195vw,196vw:196vw,197vw:197vw,198vw:198vw,199vw:199vw,200vw:200vw,);
+$value_map_viewport_width_negative:(-1vw:-1vw,-2vw:-2vw,-3vw:-3vw,-4vw:-4vw,-5vw:-5vw,-6vw:-6vw,-7vw:-7vw,-8vw:-8vw,-9vw:-9vw,-10vw:-10vw,-11vw:-11vw,-12vw:-12vw,-13vw:-13vw,-14vw:-14vw,-15vw:-15vw,-16vw:-16vw,-17vw:-17vw,-18vw:-18vw,-19vw:-19vw,-20vw:-20vw,-21vw:-21vw,-22vw:-22vw,-23vw:-23vw,-24vw:-24vw,-25vw:-25vw,-26vw:-26vw,-27vw:-27vw,-28vw:-28vw,-29vw:-29vw,-30vw:-30vw,-31vw:-31vw,-32vw:-32vw,-33vw:-33vw,-34vw:-34vw,-35vw:-35vw,-36vw:-36vw,-37vw:-37vw,-38vw:-38vw,-39vw:-39vw,-40vw:-40vw,-41vw:-41vw,-42vw:-42vw,-43vw:-43vw,-44vw:-44vw,-45vw:-45vw,-46vw:-46vw,-47vw:-47vw,-48vw:-48vw,-49vw:-49vw,-50vw:-50vw,-51vw:-51vw,-52vw:-52vw,-53vw:-53vw,-54vw:-54vw,-55vw:-55vw,-56vw:-56vw,-57vw:-57vw,-58vw:-58vw,-59vw:-59vw,-60vw:-60vw,-61vw:-61vw,-62vw:-62vw,-63vw:-63vw,-64vw:-64vw,-65vw:-65vw,-66vw:-66vw,-67vw:-67vw,-68vw:-68vw,-69vw:-69vw,-70vw:-70vw,-71vw:-71vw,-72vw:-72vw,-73vw:-73vw,-74vw:-74vw,-75vw:-75vw,-76vw:-76vw,-77vw:-77vw,-78vw:-78vw,-79vw:-79vw,-80vw:-80vw,-81vw:-81vw,-82vw:-82vw,-83vw:-83vw,-84vw:-84vw,-85vw:-85vw,-86vw:-86vw,-87vw:-87vw,-88vw:-88vw,-89vw:-89vw,-90vw:-90vw,-91vw:-91vw,-92vw:-92vw,-93vw:-93vw,-94vw:-94vw,-95vw:-95vw,-96vw:-96vw,-97vw:-97vw,-98vw:-98vw,-99vw:-99vw,-100vw:-100vw,-101vw:-101vw,-102vw:-102vw,-103vw:-103vw,-104vw:-104vw,-105vw:-105vw,-106vw:-106vw,-107vw:-107vw,-108vw:-108vw,-109vw:-109vw,-110vw:-110vw,-111vw:-111vw,-112vw:-112vw,-113vw:-113vw,-114vw:-114vw,-115vw:-115vw,-116vw:-116vw,-117vw:-117vw,-118vw:-118vw,-119vw:-119vw,-120vw:-120vw,-121vw:-121vw,-122vw:-122vw,-123vw:-123vw,-124vw:-124vw,-125vw:-125vw,-126vw:-126vw,-127vw:-127vw,-128vw:-128vw,-129vw:-129vw,-130vw:-130vw,-131vw:-131vw,-132vw:-132vw,-133vw:-133vw,-134vw:-134vw,-135vw:-135vw,-136vw:-136vw,-137vw:-137vw,-138vw:-138vw,-139vw:-139vw,-140vw:-140vw,-141vw:-141vw,-142vw:-142vw,-143vw:-143vw,-144vw:-144vw,-145vw:-145vw,-146vw:-146vw,-147vw:-147vw,-148vw:-148vw,-149vw:-149vw,-150vw:-150vw,-151vw:-151vw,-152vw:-152vw,-153vw:-153vw,-154vw:-154vw,-155vw:-155vw,-156vw:-156vw,-157vw:-157vw,-158vw:-158vw,-159vw:-159vw,-160vw:-160vw,-161vw:-161vw,-162vw:-162vw,-163vw:-163vw,-164vw:-164vw,-165vw:-165vw,-166vw:-166vw,-167vw:-167vw,-168vw:-168vw,-169vw:-169vw,-170vw:-170vw,-171vw:-171vw,-172vw:-172vw,-173vw:-173vw,-174vw:-174vw,-175vw:-175vw,-176vw:-176vw,-177vw:-177vw,-178vw:-178vw,-179vw:-179vw,-180vw:-180vw,-181vw:-181vw,-182vw:-182vw,-183vw:-183vw,-184vw:-184vw,-185vw:-185vw,-186vw:-186vw,-187vw:-187vw,-188vw:-188vw,-189vw:-189vw,-190vw:-190vw,-191vw:-191vw,-192vw:-192vw,-193vw:-193vw,-194vw:-194vw,-195vw:-195vw,-196vw:-196vw,-197vw:-197vw,-198vw:-198vw,-199vw:-199vw,-200vw:-200vw,);
+$value_map_viewport_width: map.merge($value_map_viewport_width_positive, $value_map_viewport_width_negative);
+
+$value_map_viewport_height_positive:(1vh:1vh,2vh:2vh,3vh:3vh,4vh:4vh,5vh:5vh,6vh:6vh,7vh:7vh,8vh:8vh,9vh:9vh,10vh:10vh,11vh:11vh,12vh:12vh,13vh:13vh,14vh:14vh,15vh:15vh,16vh:16vh,17vh:17vh,18vh:18vh,19vh:19vh,20vh:20vh,21vh:21vh,22vh:22vh,23vh:23vh,24vh:24vh,25vh:25vh,26vh:26vh,27vh:27vh,28vh:28vh,29vh:29vh,30vh:30vh,31vh:31vh,32vh:32vh,33vh:33vh,34vh:34vh,35vh:35vh,36vh:36vh,37vh:37vh,38vh:38vh,39vh:39vh,40vh:40vh,41vh:41vh,42vh:42vh,43vh:43vh,44vh:44vh,45vh:45vh,46vh:46vh,47vh:47vh,48vh:48vh,49vh:49vh,50vh:50vh,51vh:51vh,52vh:52vh,53vh:53vh,54vh:54vh,55vh:55vh,56vh:56vh,57vh:57vh,58vh:58vh,59vh:59vh,60vh:60vh,61vh:61vh,62vh:62vh,63vh:63vh,64vh:64vh,65vh:65vh,66vh:66vh,67vh:67vh,68vh:68vh,69vh:69vh,70vh:70vh,71vh:71vh,72vh:72vh,73vh:73vh,74vh:74vh,75vh:75vh,76vh:76vh,77vh:77vh,78vh:78vh,79vh:79vh,80vh:80vh,81vh:81vh,82vh:82vh,83vh:83vh,84vh:84vh,85vh:85vh,86vh:86vh,87vh:87vh,88vh:88vh,89vh:89vh,90vh:90vh,91vh:91vh,92vh:92vh,93vh:93vh,94vh:94vh,95vh:95vh,96vh:96vh,97vh:97vh,98vh:98vh,99vh:99vh,100vh:100vh,101vh:101vh,102vh:102vh,103vh:103vh,104vh:104vh,105vh:105vh,106vh:106vh,107vh:107vh,108vh:108vh,109vh:109vh,110vh:110vh,111vh:111vh,112vh:112vh,113vh:113vh,114vh:114vh,115vh:115vh,116vh:116vh,117vh:117vh,118vh:118vh,119vh:119vh,120vh:120vh,121vh:121vh,122vh:122vh,123vh:123vh,124vh:124vh,125vh:125vh,126vh:126vh,127vh:127vh,128vh:128vh,129vh:129vh,130vh:130vh,131vh:131vh,132vh:132vh,133vh:133vh,134vh:134vh,135vh:135vh,136vh:136vh,137vh:137vh,138vh:138vh,139vh:139vh,140vh:140vh,141vh:141vh,142vh:142vh,143vh:143vh,144vh:144vh,145vh:145vh,146vh:146vh,147vh:147vh,148vh:148vh,149vh:149vh,150vh:150vh,151vh:151vh,152vh:152vh,153vh:153vh,154vh:154vh,155vh:155vh,156vh:156vh,157vh:157vh,158vh:158vh,159vh:159vh,160vh:160vh,161vh:161vh,162vh:162vh,163vh:163vh,164vh:164vh,165vh:165vh,166vh:166vh,167vh:167vh,168vh:168vh,169vh:169vh,170vh:170vh,171vh:171vh,172vh:172vh,173vh:173vh,174vh:174vh,175vh:175vh,176vh:176vh,177vh:177vh,178vh:178vh,179vh:179vh,180vh:180vh,181vh:181vh,182vh:182vh,183vh:183vh,184vh:184vh,185vh:185vh,186vh:186vh,187vh:187vh,188vh:188vh,189vh:189vh,190vh:190vh,191vh:191vh,192vh:192vh,193vh:193vh,194vh:194vh,195vh:195vh,196vh:196vh,197vh:197vh,198vh:198vh,199vh:199vh,200vh:200vh,);
+$value_map_viewport_height_negative:(-1vh:-1vh,-2vh:-2vh,-3vh:-3vh,-4vh:-4vh,-5vh:-5vh,-6vh:-6vh,-7vh:-7vh,-8vh:-8vh,-9vh:-9vh,-10vh:-10vh,-11vh:-11vh,-12vh:-12vh,-13vh:-13vh,-14vh:-14vh,-15vh:-15vh,-16vh:-16vh,-17vh:-17vh,-18vh:-18vh,-19vh:-19vh,-20vh:-20vh,-21vh:-21vh,-22vh:-22vh,-23vh:-23vh,-24vh:-24vh,-25vh:-25vh,-26vh:-26vh,-27vh:-27vh,-28vh:-28vh,-29vh:-29vh,-30vh:-30vh,-31vh:-31vh,-32vh:-32vh,-33vh:-33vh,-34vh:-34vh,-35vh:-35vh,-36vh:-36vh,-37vh:-37vh,-38vh:-38vh,-39vh:-39vh,-40vh:-40vh,-41vh:-41vh,-42vh:-42vh,-43vh:-43vh,-44vh:-44vh,-45vh:-45vh,-46vh:-46vh,-47vh:-47vh,-48vh:-48vh,-49vh:-49vh,-50vh:-50vh,-51vh:-51vh,-52vh:-52vh,-53vh:-53vh,-54vh:-54vh,-55vh:-55vh,-56vh:-56vh,-57vh:-57vh,-58vh:-58vh,-59vh:-59vh,-60vh:-60vh,-61vh:-61vh,-62vh:-62vh,-63vh:-63vh,-64vh:-64vh,-65vh:-65vh,-66vh:-66vh,-67vh:-67vh,-68vh:-68vh,-69vh:-69vh,-70vh:-70vh,-71vh:-71vh,-72vh:-72vh,-73vh:-73vh,-74vh:-74vh,-75vh:-75vh,-76vh:-76vh,-77vh:-77vh,-78vh:-78vh,-79vh:-79vh,-80vh:-80vh,-81vh:-81vh,-82vh:-82vh,-83vh:-83vh,-84vh:-84vh,-85vh:-85vh,-86vh:-86vh,-87vh:-87vh,-88vh:-88vh,-89vh:-89vh,-90vh:-90vh,-91vh:-91vh,-92vh:-92vh,-93vh:-93vh,-94vh:-94vh,-95vh:-95vh,-96vh:-96vh,-97vh:-97vh,-98vh:-98vh,-99vh:-99vh,-100vh:-100vh,-101vh:-101vh,-102vh:-102vh,-103vh:-103vh,-104vh:-104vh,-105vh:-105vh,-106vh:-106vh,-107vh:-107vh,-108vh:-108vh,-109vh:-109vh,-110vh:-110vh,-111vh:-111vh,-112vh:-112vh,-113vh:-113vh,-114vh:-114vh,-115vh:-115vh,-116vh:-116vh,-117vh:-117vh,-118vh:-118vh,-119vh:-119vh,-120vh:-120vh,-121vh:-121vh,-122vh:-122vh,-123vh:-123vh,-124vh:-124vh,-125vh:-125vh,-126vh:-126vh,-127vh:-127vh,-128vh:-128vh,-129vh:-129vh,-130vh:-130vh,-131vh:-131vh,-132vh:-132vh,-133vh:-133vh,-134vh:-134vh,-135vh:-135vh,-136vh:-136vh,-137vh:-137vh,-138vh:-138vh,-139vh:-139vh,-140vh:-140vh,-141vh:-141vh,-142vh:-142vh,-143vh:-143vh,-144vh:-144vh,-145vh:-145vh,-146vh:-146vh,-147vh:-147vh,-148vh:-148vh,-149vh:-149vh,-150vh:-150vh,-151vh:-151vh,-152vh:-152vh,-153vh:-153vh,-154vh:-154vh,-155vh:-155vh,-156vh:-156vh,-157vh:-157vh,-158vh:-158vh,-159vh:-159vh,-160vh:-160vh,-161vh:-161vh,-162vh:-162vh,-163vh:-163vh,-164vh:-164vh,-165vh:-165vh,-166vh:-166vh,-167vh:-167vh,-168vh:-168vh,-169vh:-169vh,-170vh:-170vh,-171vh:-171vh,-172vh:-172vh,-173vh:-173vh,-174vh:-174vh,-175vh:-175vh,-176vh:-176vh,-177vh:-177vh,-178vh:-178vh,-179vh:-179vh,-180vh:-180vh,-181vh:-181vh,-182vh:-182vh,-183vh:-183vh,-184vh:-184vh,-185vh:-185vh,-186vh:-186vh,-187vh:-187vh,-188vh:-188vh,-189vh:-189vh,-190vh:-190vh,-191vh:-191vh,-192vh:-192vh,-193vh:-193vh,-194vh:-194vh,-195vh:-195vh,-196vh:-196vh,-197vh:-197vh,-198vh:-198vh,-199vh:-199vh,-200vh:-200vh,);
+$value_map_viewport_height: map.merge($value_map_viewport_height_positive, $value_map_viewport_height_negative);
+
+$browser_prefixes: (-webkit-, -moz-, -ms-, -o-, null);
+$value_map_additions: (0: 0, auto: auto,);
+
+
+
+//library shortcode
+$global_shortcode: oson !default;
+
+
+
+//breakpoint
+$breakpoints-base: (z: 0);
+$custom-breakpoints: (
+        xxl: 1920,
+        xl: 1366,
+        lg: 1024,
+        md: 768
+) !default;
+$breakpoints: map.merge($breakpoints-base, $custom-breakpoints);
+
+
+
+//primary color
+$primary_color: #0055ff !default;
+
+
+
+//color
+$colors-base: (
+        'inherit': inherit,
+        'transparent': transparent,
+        'current': currentColor,
+);
+$custom-colors: (
+        headline: #ffffff,
+        text: #b9bfcc,
+        background-prime: #10131b,
+        background-secondary: #222835,
+        prime: $primary_color,
+        secondary: #ff5117
+) !default;
+$colors: map.merge($custom-colors, $custom-colors);
+
+
+
+//font & typo defaults
+$font-default: 'Lato', sans-serif !default;
+$font-size-default: 18px !default;
+$text-color-default: map.get($custom_colors, text) !default;
+
+
+
+//font size
+$custom-font-sizes: () !default;
+
+
+
+//font
+$custom-font-families : (
+        text: $font-default,
+) !default;
+
+
+
+//font-weights
+$font-weights-default: (
+        light: 300,
+        regular: 400,
+        medium: 500,
+        semibold: 600,
+        bold: 700,
+        extrabold: 800,
+        black: 900,
+);
+$custom-font-weights: () !default;
+$font-weights: map.merge($font-weights-default, $custom-font-weights);
+
+
+
+//line heights
+$line-heights-default: (
+        10: 1.0,
+        11: 1.1,
+        12: 1.2,
+        13: 1.3,
+        14: 1.4,
+        15: 1.5,
+        16: 1.6,
+);
+$custom-line-heights: () !default;
+$line-heights: map.merge($line-heights-default, $custom-line-heights);
+
+
+
+//letter spacings
+$letter-spacings-default : (
+        normal: normal,
+        1: 1px,
+        2: 2px
+);
+$custom-letter-spacings: () !default;
+$letter-spacings: map.merge($letter-spacings-default, $custom-letter-spacings);
+
+
+
+//typo classes
+$typo_classes: () !default;
+
+
+
+//fluid breakpoint
+$fluid-breakpoint: 1920 !default;
+
+
+
+//transition
+$transition-property-default: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter !default;
+$transition-timing-default: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$transition-duration-default: 300ms !default;
+
+$transition-properties-default: (
+        none: none,
+        all: all,
+        default: $transition-property-default,
+        colors: (color, background-color, border-color, text-decoration-color, fill, stroke),
+        opacity: opacity,
+        shadow: box-shadow,
+        transform: transform,
+);
+$custom-transition-properties: () !default;
+$transition-properties: map.merge($transition-properties-default, $custom-transition-properties);
+
+$transition-durations-default: (
+        75: 75ms,
+        100: 100ms,
+        150: 150ms,
+        200: 200ms,
+        300: 300ms,
+        400: 400ms,
+        500: 500ms,
+        600: 600ms,
+        700: 700ms,
+        800: 800ms,
+        900: 900ms,
+        1000: 1000ms
+);
+$custom-transition-durations: () !default;
+$transition-durations: map.merge($transition-durations-default, $custom-transition-durations);
+
+$transition-timings-default: (
+        linear: linear,
+        in: cubic-bezier(0.4, 0, 1, 1),
+        out: cubic-bezier(0, 0, 0.2, 1),
+        in-out: cubic-bezier(0.4, 0, 0.2, 1),
+);
+$custom-transition-timings: () !default;
+$transition-timings: map.merge($transition-timings-default, $custom-transition-timings);
+
+$custom-transition-delays: () !default;
+$transition-delays: map.merge($transition-durations-default, $custom-transition-delays);
+
+
+
+//height
+$heights_px_percentage: map.merge($value_map_px, $value_map_percentage);
+$heights_px_percentage_viewport_width: map.merge($heights_px_percentage, $value_map_viewport_width);
+$heights_px_percentage_viewport_width_viewport_height: map.merge($heights_px_percentage_viewport_width, $value_map_viewport_height);
+$heights_base: map.merge($heights_px_percentage_viewport_width_viewport_height, $value_map_additions);
+$custom-heights: () !default;
+$heights: map.merge($heights_base, $custom-heights);
+
+//max-height
+$max_heights: $heights;
+
+//min-height
+$min_heights: $heights;
+
+
+
+//width
+$custom-widths: () !default;
+$widths: map.merge($heights_base, $custom-widths);
+
+//max-width
+$max_widths: $widths;
+
+//min-width
+$min_widths: $widths;
+
+
+
+//opacity
+$opacity_base: (0:0, 5:0.05, 10:0.1, 15:0.15, 20:0.2, 25:0.25, 30:0.3, 35:0.35, 40:0.4, 45:0.45, 50:0.5, 55:0.55, 60:0.6, 65:0.65, 70:0.7, 75:0.75, 80:0.8, 85:0.85, 90:0.9, 95:0.95, 100:1);
+$custom-opacity: () !default;
+$opacities: map.merge($opacity_base, $custom-opacity);
+
+
+
+//border
+$border-default-style: solid !default;
+$border-default-color: $primary_color !default;
+
+
+
+//border width
+$border-widths-base: (
+        0: 0,
+        1: 1px,
+        2: 2px,
+        3: 3px,
+        4: 4px,
+        5: 5px,
+);
+$custom-border-widths: () !default;
+$border_widths: map.merge($border-widths-base, $custom-border-widths);
+
+
+
+//border radius
+$border-radius-base: (
+        0: 0,
+        5: 5px,
+        10: 10px,
+        15: 15px,
+        20: 20px,
+        25: 25px,
+        30: 30px,
+        35: 35px,
+        40: 40px,
+        45: 45px,
+        50: 50px,
+        55: 55px,
+        60: 60px,
+        65: 65px,
+        70: 70px,
+        75: 75px,
+        80: 80px,
+        85: 85px,
+        90: 90px,
+        95: 95px,
+        100: 100px,
+        50p: 50%,
+);
+$custom-border-radius: () !default;
+$border-radius: map.merge($border-radius-base, $custom-border-radius);
+
+
+//zindex
+$zindex_base: (
+        -1: -1,
+        0: 0,
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        6: 6,
+        7: 7,
+        8: 8,
+        9: 9,
+        10: 10,
+        100: 100,
+        1000: 1000,
+        auto: auto,
+);
+$custom-zindex: () !default;
+$zindexes: map.merge($zindex_base, $custom-zindex);
+
+
+
+//margin
+$margin_base: map.merge($value_map_px, $value_map_additions);
+$custom-margins: () !default;
+$margins: map.merge($margin_base, $custom-margins);
+
+
+
+//padding
+$padding_base: map.merge($value_map_px, $value_map_additions);
+$custom-paddings: () !default;
+$paddings: map.merge($padding_base, $custom-paddings);
+
+
+
+//position
+$positions_px_percentage: map.merge($value_map_px, $value_map_percentage);
+$positions_base: map.merge($positions_px_percentage, $value_map_additions);
+$custom-positions: () !default;
+$positions: map.merge($positions_base, $custom-positions);
+
+
+
+//order
+$orders-base: (
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        6: 6,
+        7: 7,
+        8: 8,
+        9: 9,
+        10: 10,
+        11: 11,
+        12: 12,
+        first: -9999,
+        last: 9999,
+        none: 0,
+);
+$custom-orders: () !default;
+$orders: map.merge($orders-base, $custom-orders);
+
+
+
+//cursor
+$cursor-base: (auto: auto, none: none, default: default, pointer: pointer, wait: wait, text: text, move: move, help: help, not-allowed: not-allowed, progress: progress, copy: copy, no-drop: no-drop, grab: grab, grabbing: grabbing, zoom-in: zoom-in, zoom-out: zoom-out);
+$custom-cursor: () !default;
+$cursor: map.merge($cursor-base, $custom-cursor);
+
+
+
+//list
+$list-unordered-style: disc !default;
+$list-ordered-style: decimal !default;
+$list-spacing: 20px !default;
+$list-item-spacing: 10px !default;
+
+
+
+//typo tags
+$typo_tags_default: (
+        h1: (
+                font-family: $font-default,
+                font-weight: 700,
+                font-size: 64 45,
+                font-style: normal,
+                color: $text-color-default,
+                line-height: 1.1,
+                letter-spacing: normal,
+                text-transform: none,
+                text-decoration: none,
+                word-break: break-word,
+                margin: 0,
+        ),
+        h2: (
+                font-family: $font-default,
+                font-weight: 700,
+                font-size: 48 32,
+                font-style: normal,
+                color: $text-color-default,
+                line-height: 1.1,
+                letter-spacing: normal,
+                text-transform: none,
+                text-decoration: none,
+                word-break: break-word,
+                margin: 0,
+        ),
+        h3: (
+                font-family: $font-default,
+                font-weight: 700,
+                font-size: 32 28,
+                font-style: normal,
+                color: $text-color-default,
+                line-height: 1.1,
+                letter-spacing: normal,
+                text-transform: none,
+                text-decoration: none,
+                word-break: break-word,
+                margin: 0,
+        ),
+        h4: (
+                font-family: $font-default,
+                font-weight: 700,
+                font-size: 24 20,
+                font-style: normal,
+                color: $text-color-default,
+                line-height: 1.5,
+                letter-spacing: normal,
+                text-transform: none,
+                text-decoration: none,
+                word-break: break-word,
+                margin: 0,
+        ),
+        h5: (
+                font-family: $font-default,
+                font-weight: 700,
+                font-size: $font-size-default,
+                font-style: normal,
+                color: $text-color-default,
+                line-height: 1.5,
+                letter-spacing: normal,
+                text-transform: none,
+                text-decoration: none,
+                word-break: break-word,
+                margin: 0,
+        ),
+        h6: (
+                font-family: $font-default,
+                font-weight: 700,
+                font-size: 16,
+                font-style: normal,
+                color: $text-color-default,
+                line-height: 1.5,
+                letter-spacing: normal,
+                text-transform: none,
+                text-decoration: none,
+                word-break: break-word,
+                margin: 0,
+        ),
+        p: (
+                font-family: $font-default,
+                font-weight: 400,
+                font-size: $font-size-default,
+                font-style: normal,
+                color: $text-color-default,
+                line-height: 1.5,
+                letter-spacing: normal,
+                text-transform: none,
+                text-decoration: none,
+                word-break: break-word,
+                margin: 0,
+        ),
+        li: (
+                font-family: $font-default,
+                font-weight: 400,
+                font-size: $font-size-default,
+                font-style: normal,
+                color: $text-color-default,
+                line-height: 1.5,
+                letter-spacing: normal,
+                text-transform: none,
+                text-decoration: none,
+                word-break: break-word,
+        ),
+        a: (
+                font-family: $font-default,
+                font-weight: 700,
+                font-size: $font-size-default,
+                font-style: normal,
+                color: $text-color-default,
+                line-height: 1.5,
+                letter-spacing: normal,
+                text-transform: none,
+                text-decoration: underline,
+                text-decoration-color: $primary_color,
+                word-break: break-word,
+                hover: (
+                        color: $primary_color,
+                        text-decoration-color: $primary_color,
+                ),
+                focus: (
+                        color: scale-color($primary_color, $lightness: -30%),
+                        text-decoration-color: $primary_color,
+                ),
+        ),
+
+);
+$custom-typo-h1: () !default;
+$custom-typo-h2: () !default;
+$custom-typo-h3: () !default;
+$custom-typo-h4: () !default;
+$custom-typo-h5: () !default;
+$custom-typo-h6: () !default;
+$custom-typo-p: () !default;
+$custom-typo-li: () !default;
+$custom-typo-a: () !default;
+$typo_tags_custom: (
+        h1: $custom-typo-h1,
+        h2: $custom-typo-h2,
+        h3: $custom-typo-h3,
+        h4: $custom-typo-h4,
+        h5: $custom-typo-h5,
+        h6: $custom-typo-h6,
+        p: $custom-typo-p,
+        li: $custom-typo-li,
+        a: $custom-typo-a,
+);
+
+
+
+//component grid
+$columns-default: 12 !default;
+$column-spacing-default: 30 !default;
+
+$column-spacings-default: (
+        normal: $column-spacing-default,
+        0: 0,
+        50: 50,
+        80: 80,
+        100: 100,
+);
+$custom-column-spacings: () !default;
+$column-spacings: map.merge($column-spacings-default, $custom-column-spacings);
+
+$custom-wrapper: (
+        small 1200px 30px,
+        large 1400px 30px,
+        fullwidth 100% 0,
+) !default;
+$wrapper: $custom-wrapper;

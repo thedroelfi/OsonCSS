@@ -1,0 +1,156 @@
+// OsonCSS settings.scss
+
+//utilities
+$utilities: (
+        typography: true,
+        list: true,
+        margin: true,
+        padding: true,
+        cursor: true,
+        select: true,
+        overflow: true,
+        color: true,
+        display: true,
+        opacity: true,
+        flexbox: true,
+        position: true,
+        width: true,
+        height: true,
+        zindex: true,
+        border: true,
+        transition: true,
+        pointer-events: true,
+) !default;
+
+
+
+//components
+$components: (
+        grid: true,
+) !default;
+
+
+
+//utility-color
+$ut_color_responsive: true !default;
+$ut_color_hover: true !default;
+$ut_color_focus: false !default;
+
+
+
+//typography
+$ut_typography_responsive: true !default;
+
+
+
+//text-decoration
+$ut_text_decoration_hover: true !default;
+$ut_text_decoration_focus: false !default;
+
+
+
+//utility-height
+$ut_height_responsive: true !default;
+
+$ut_height_hover: false !default;
+$ut_height_focus: false !default;
+
+$ut_max_height_hover: false !default;
+$ut_max_height_focus: false !default;
+
+$ut_min_height_hover: false !default;
+$ut_min_height_focus: false !default;
+
+
+
+//utility width
+$ut_width_responsive: true !default;
+
+$ut_width_hover: false !default;
+$ut_width_focus: false !default;
+
+$ut_max_width_hover: false !default;
+$ut_max_width_focus: false !default;
+
+$ut_min_width_hover: false !default;
+$ut_min_width_focus: false !default;
+
+
+
+//utility position
+$ut_position_responsive: true !default;
+$ut_position_hover: true !default;
+$ut_position_focus: false !default;
+
+
+
+//utility position
+$ut_border_responsive: true !default;
+$ut_border_color_hover: true !default;
+$ut_border_color_focus: false !default;
+$ut_border_radius_hover: true !default;
+$ut_border_radius_focus: false !default;
+
+
+
+//utility margin
+$ut_margin_responsive: true !default;
+
+
+
+//utility padding
+$ut_padding_responsive: true !default;
+
+
+
+//utility-opacity
+$ut_opacity_responsive: true !default;
+$ut_opacity_hover: true !default;
+$ut_opacity_focus: false !default;
+
+
+
+//utility-zindex
+$ut_zindex_responsive: true !default;
+$ut_zindex_hover: false !default;
+$ut_zindex_focus: false !default;
+
+
+
+//utility-cursor
+$ut_cursor_responsive: false !default;
+
+
+
+//utility-overflow
+$ut_overflow_responsive: false !default;
+
+
+
+//utility-select
+$ut_select_responsive: false !default;
+
+
+
+//utility-flexbox
+$ut_flexbox_responsive: true !default;
+
+
+
+//utility-display
+$ut_display_responsive: true !default;
+
+
+
+//utility-transition
+$ut_transition_responsive: true !default;
+
+
+
+//utility-pointer-events
+$ut_pointer_events_responsive: true !default;
+
+
+
+//utility-list
+$ut_list_responsive: true !default;

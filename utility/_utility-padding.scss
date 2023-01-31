@@ -1,0 +1,23 @@
+// OsonCSS utility-padding.scss
+
+@mixin utility-padding($breakpoint) {
+  $shortcode: p;
+  $directions: ('t' top, 'r' right, 'b' bottom, 'l' left, 'tb' top bottom, 'lr' left right);
+
+  @each $padding_name, $padding in $paddings {
+
+    .#{$breakpoint}#{$shortcode}-#{$padding_name} {
+      padding: $padding;
+    }
+
+    @each $direction_name, $direction, $second_direction in $directions {
+
+      .#{$breakpoint}#{$shortcode}#{$direction_name}-#{$padding_name} {
+        padding-#{$direction}: $padding;
+        @if $second_direction != null {
+          padding-#{$second_direction}: $padding;
+        }
+      }
+    }
+  }
+}
