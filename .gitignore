@@ -2,3 +2,12 @@
 *.css.map
 *.sass.map
 *.scss.map
+
+.idea
+*.css
+*.php
+
+.node_modules/
+package-lock.json
+
+.DS_Store
