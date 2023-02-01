@@ -1,0 +1,22 @@
+{
+  "name": "osoncss",
+  "version": "0.1.0",
+  "description": "A SCSS library for the development of template-based websites.",
+  "main": "_oson.scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thedroelfi/OsonCSS.git"
+  },
+  "keywords": ["CSS", "SCSS"],
+  "author": [
+    {
+      "name" : "thedroelfi",
+      "url" : "https://github.com/thedroelfi"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thedroelfi/OsonCSS/issues"
+  },
+  "homepage": "https://github.com/thedroelfi/OsonCSS"
+}
